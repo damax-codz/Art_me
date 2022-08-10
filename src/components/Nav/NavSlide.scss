@@ -1,0 +1,22 @@
+@mixin font($f, $s, $w, $size, $c) {
+    font-family: $f;
+    font-style: $s;
+    font-weight: $w;
+    font-size: $size;
+    color: $c;
+  }
+
+.nav-slide-links{
+    margin: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    
+    .links{
+        text-decoration: none;
+        margin: 10px 0px;
+        @include font(Noto Sans JP, sans-serif, 400, 20px, black);
+        &:hover {
+            color: rgba(165, 42, 42, 1);
+          }
+    }
+}
