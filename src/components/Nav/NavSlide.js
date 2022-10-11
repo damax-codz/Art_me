@@ -62,16 +62,16 @@ const NavSlide = (props) => {
         </Box>
 
         <Box className="nav-slide-links">
-          <Link to="Artme/home" onClick={props.closeSideNav} className="links">
+          <Link to="Art_me/home" onClick={props.closeSideNav} className="links">
             Home
           </Link>
           <hr />
-          <Link to="Artme/home" onClick={props.closeSideNav} className="links">
+          <Link to="Art_me/home" onClick={props.closeSideNav} className="links">
             Artist
           </Link>
           <hr />
           <Link
-            to="Artme/gallery"
+            to="Art_me/gallery"
             onClick={props.closeSideNav}
             className="links"
           >
@@ -79,18 +79,18 @@ const NavSlide = (props) => {
           </Link>
           <hr />
 
-          <Link to="Artme/home" onClick={props.closeSideNav} className="links">
+          <Link to="Art_me/home" onClick={props.closeSideNav} className="links">
             About
           </Link>
           <hr />
 
           <Box className="btns">
-            <Link to="Artme/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
+            <Link to="Art_me/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
               <Button variant="outlined" className="nav-btn">
                 Login
               </Button>
             </Link>
-            <Link to="Artme/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
+            <Link to="Art_me/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
               <Button variant="contained" className="nav-btn signup-btn">
                 Signup
               </Button>
