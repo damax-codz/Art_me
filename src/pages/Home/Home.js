@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { link, Outlet } from "react-router-dom";
 import anim from "../../components/images/anim.jpg";
@@ -193,7 +193,7 @@ const Home = () => {
           </Grid>
           <Grid item className="image-container long-row-three">
             <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
+              <CardActionArea >
                 <CardMedia
                   component="img"
                   height="200"
@@ -212,6 +212,7 @@ const Home = () => {
             </Card>
           </Grid>
         </Grid>
+        <Button className="more_collections" variant="contained">More Collections</Button>
       </div>
 
       {/* <h1 id="COLLECTION">
