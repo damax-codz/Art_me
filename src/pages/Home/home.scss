@@ -1,0 +1,136 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .page {
+    width: 100%;
+    // min-height: 100vh;
+    display: flex;
+    // align-items: center;
+    margin-top: 50px;
+    .img-text {
+      width: 60%;
+      font-size: 5em;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    .img-text img {
+      width: 80%;
+    }
+    .left-text {
+      @include font("Dancing Script", cursive, 900, 80px, rgb(0, 0, 0));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 60px;
+    }
+  }
+  .image-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(165, 42, 42, 0.029);
+    padding-top: 100px;
+    z-index: -1000;
+    .disappear-text {
+      width: 100%;
+      display: contents;
+      h2 {
+        text-align: center;
+        @include font("Quicksand", nans-serif, 900, 40px, rgb(0, 0, 0));
+      }
+      .text-one {
+        animation: disappear 6s ease-in-out infinite;
+        position: absolute;
+      }
+      .text-two {
+        animation: disappeartwo 6s ease-in-out infinite;
+      }
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-auto-rows: minmax(300px, auto);
+      width: 70%;
+      margin-top: 50px;
+      gap: 20px;
+    }
+    .image-container {
+      .artist-name {
+        @include font("Quicksand", nans-serif, 400, 12px, rgb(0, 0, 0));
+      }
+      .art-description {
+        margin-top: 20px;
+        @include font("Quicksand", nans-serif, 500, 20px, rgb(0, 0, 0));
+      }
+    }
+    .long-row {
+      grid-row: 1/3;
+    }
+    .long-row-two {
+      grid-row: 2/4;
+    }
+    .long-row-three {
+      grid-column: 3/5;
+    }
+  }
+}
+@keyframes disappear {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes disappeartwo {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  #COLLECTION {
+    font-size: 6em;
+  }
+  .video {
+    display: none;
+  }
+  .main .image-grid-container .image-grid{
+    display: flex;
+    flex-direction: column;
+  }
+  .main .image-container{
+    height: 400px;
+  }
+}

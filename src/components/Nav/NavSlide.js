@@ -1,8 +1,8 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
-import {  Box, IconButton, Slide,  } from "@mui/material";
-import "./NavSlide.scss"
+import { Box, Button, IconButton, Slide, Typography } from "@mui/material";
+import "./NavSlide.scss";
 import { Link } from "react-router-dom";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -22,10 +22,13 @@ const NavSlide = (props) => {
             display: "flex",
             justifyContent: "flex-end",
             "& .MuiPaper-root": {
-              width: "40%",
-              maxWidth: "568px",
+              width: "100%",
+            },
+            "& .css-m9glnp-MuiPaper-root-MuiDialog-paper": {
+              backgroundColor: "#f8f1f1",
             },
           },
+         
           background: "rgba(229,229,229,0.4)",
           display: { md: "none" },
         }}
@@ -38,23 +41,61 @@ const NavSlide = (props) => {
             gridTemplateColumns: "1fr 1fr",
             alignItems: "center",
           }}
+          className="nav-slide-container"
         >
           <Box className="mainpage-logo">
+            <Box className="anim-circle"></Box>
+            <Typography variant="h3" className="nav-title-text">
+              Artme{" "}
+            </Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "end" }}>
-            <IconButton aria-label="close"  onClick={props.closeSideNav} sx={{width:"50px",height:"50px"}}>
+            <IconButton
+              aria-label="close"
+              onClick={props.closeSideNav}
+              size="large"
+              sx={{ width: "50px" }}
+            >
               <CloseIcon />
             </IconButton>
           </Box>
         </Box>
 
         <Box className="nav-slide-links">
-            <Link to="Artme/home" onClick={props.closeSideNav} className='links'>Home</Link>
-            <Link to="Artme/home"  onClick={props.closeSideNav} className='links'>Artist</Link>
-            <Link to="Artme/gallery"  onClick={props.closeSideNav} className='links'>Shop</Link>
-            <Link to="Artme/home"  onClick={props.closeSideNav} className='links'>About</Link>
-            <Link to="Artme/signup"  onClick={props.closeSideNav} className='links'>Login</Link>
-            <Link to="Artme/signup"  onClick={props.closeSideNav} className='links'>Signup</Link>
+          <Link to="Artme/home" onClick={props.closeSideNav} className="links">
+            Home
+          </Link>
+          <hr />
+          <Link to="Artme/home" onClick={props.closeSideNav} className="links">
+            Artist
+          </Link>
+          <hr />
+          <Link
+            to="Artme/gallery"
+            onClick={props.closeSideNav}
+            className="links"
+          >
+            Shop
+          </Link>
+          <hr />
+
+          <Link to="Artme/home" onClick={props.closeSideNav} className="links">
+            About
+          </Link>
+          <hr />
+
+          <Box className="btns">
+            <Link to="Artme/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
+              <Button variant="outlined" className="nav-btn">
+                Login
+              </Button>
+            </Link>
+            <Link to="Artme/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
+              <Button variant="contained" className="nav-btn signup-btn">
+                Signup
+              </Button>
+            </Link>
+          </Box>
         </Box>
       </Dialog>
     </div>

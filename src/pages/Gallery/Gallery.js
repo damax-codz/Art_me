@@ -1,16 +1,16 @@
-import anim from "./../images/anim.jpg";
-import dance from "./../images/dance.png";
-import eat from "./../images/eat.jpg";
-import flow from "./../images/flow.jpg";
-import hand from "./../images/hand.jpg";
-import haus from "./../images/haus.jpg";
-import lit from "./../images/lit.jpg";
-import mam from "./../images/mam.jpg";
-import mast from "./../images/mast.jpg";
-import mil from "./../images/mil.jpg";
-import mon from "./../images/mon.jpg";
-import nig from "./../images/nig.jpg";
-import umb from "./../images/umb.jpg";
+import anim from "../../components/images/anim.jpg";
+import dance from "../../components/images/dance.png";
+import eat from "../../components/images/eat.jpg";
+import flow from "../../components/images/flow.jpg";
+import hand from "../../components/images/hand.jpg";
+import haus from "../../components/images/haus.jpg";
+import lit from "../../components/images/lit.jpg";
+import mam from "../../components/images/mam.jpg";
+import mast from "../../components/images/mast.jpg";
+import mil from "../../components/images/mil.jpg";
+import mon from "../../components/images/mon.jpg";
+import nig from "../../components/images/nig.jpg";
+import umb from "../../components/images/umb.jpg";
 
 import './gallery.css'
 

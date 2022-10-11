@@ -97,12 +97,12 @@ const Nav = () => {
             display: { xs: "none", md: "flex" },
           }}
         >
-          <Link to='Artme/signup' className="nav-btn-link">
+          <Link to='Artme/signup' className="nav-btn-link" onClick={startAnim}>
           <Button variant="outlined" className="nav-btn">
             Login
           </Button>
           </Link>
-          <Link to='Artme/signup' className="nav-btn-link">
+          <Link to='Artme/signup' className="nav-btn-link" onClick={startAnim}>
           <Button variant="outlined" className="nav-btn">
             Signup
           </Button>

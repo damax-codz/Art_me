@@ -12,6 +12,9 @@
   height: 65px;
   justify-content: space-between;
   margin: 10px 34px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
   .nav-title {
     display: flex;
     align-items: center;
