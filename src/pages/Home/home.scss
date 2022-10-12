@@ -65,12 +65,28 @@
       gap: 20px;
     }
     .image-container {
-      .artist-name {
-        @include font("Quicksand", nans-serif, 400, 12px, rgb(0, 0, 0));
-      }
-      .art-description {
-        margin-top: 20px;
-        @include font("Quicksand", nans-serif, 500, 20px, rgb(0, 0, 0));
+      .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        padding: 0%;
+        .container-img {
+          height: 70%;
+          width: 100%;
+        }
+        .container-text {
+          margin: 0px 10px;
+          .artist-name {
+            @include font("Quicksand", nans-serif, 400, 12px, rgb(0, 0, 0));
+          }
+          .art-description {
+            // margin-top: 10px;
+            @include font("Quicksand", nans-serif, 700, 20px, rgb(0, 0, 0));
+          }
+        }
       }
     }
     .long-row {
@@ -84,10 +100,11 @@
     }
     .more_collections {
       background-color: rgba(165, 42, 42, 1);
-      @include font(Noto Sans JP, sans-serif, 300, 15px, white);
+      @include font(Noto Sans JP, sans-serif, 200, 12px, white);
       margin-top: 20px;
       padding: 0%;
-      text-transform: capitalize;
+      text-transform: none;
+      width: 230px;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { link, Outlet } from "react-router-dom";
 import anim from "../../components/images/anim.jpg";
@@ -16,10 +16,7 @@ import nig from "../../components/images/nig.jpg";
 import umb from "../../components/images/umb.jpg";
 import video from "../../components/video/video.mp4";
 import "./home.scss";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea } from "@mui/material";
+import CallMadeIcon from "@mui/icons-material/CallMade";
 let showVid = (e) => {
   let vid = document.getElementById("video");
   e.target.style.opacity = ".7";
@@ -52,167 +49,139 @@ const Home = () => {
         </div>
         <Grid container className="image-grid">
           <Grid item className="image-container long-row">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="400"
-                  image={anim}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={anim}
+                alt="green iguana"
+                className="container-img"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                  Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
+
           <Grid item className="image-container">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={dance}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={dance}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
           <Grid item className="image-container long-row-three">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={eat}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={eat}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
           <Grid item className="image-container ">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={flow}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={flow}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
           <Grid item className="image-container ">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={hand}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={hand}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
           <Grid item className="image-container long-row-two">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="400"
-                  image={lit}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={lit}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
           <Grid item className="image-container ">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={mam}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={mam}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
           <Grid item className="image-container long-row-three">
-            <Card sx={{ width: "100%", height: "100%" }}>
-              <CardActionArea >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={haus}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" className="artist-name">
+            <Box className="container">
+              <Box
+                component="img"
+                src={eat}
+                className="container-img"
+                alt="green iguana"
+              />
+              <Box className="container-text">
+                <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
-                  </Typography>
-                  <p  className="art-description">
-                   Lorem Ipsum
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                </Typography>
+                <p className="art-description">Lorem Ipsum</p>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
-        <Button className="more_collections" variant="contained">More Collections</Button>
+        <Button className="more_collections" variant="contained">
+          Discover more collections{" "}
+          <CallMadeIcon sx={{ fontSize: 15, marginLeft: "3px" }} />
+        </Button>
       </div>
 
       {/* <h1 id="COLLECTION">
@@ -221,11 +190,11 @@ const Home = () => {
       {/* wanna add some disabled buttons scrolling showing types of art present */}
       {/* <div className="imageslide">
       <marquee width="100%" direction="left" scrollamount="12" behavior="scroll" >
-        <img src={dance} alt="anim" />
-        <img src={eat} alt="anim" />
-        <img src={flow} alt="anim" />
-        <img src={hand} alt="anim" />
-        <img src={haus} alt="anim" />
+        <img src={dance} className="container-img" alt="anim" />
+        <img src={eat} a className="container-img"lt="anim" />
+        <img src={flow}  className="container-img"alt="anim" />
+        <img src={hand}  className="container-img"alt="anim" />
+        <img src={haus}  className="container-img"alt="anim" />
         <img src={lit} alt="anim" />
         <img src={mam} alt="anim" />
         <img src={mast} alt="anim" />
