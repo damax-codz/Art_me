@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Art_me/static/css/main.912811df.css",
-    "main.js": "/Art_me/static/js/main.aba77f93.js",
+    "main.css": "/Art_me/static/css/main.3adaa90f.css",
+    "main.js": "/Art_me/static/js/main.26483689.js",
     "static/js/787.c202ca43.chunk.js": "/Art_me/static/js/787.c202ca43.chunk.js",
     "static/media/video.mp4": "/Art_me/static/media/video.bbc8c9a759961e6ec7b0.mp4",
     "static/media/dance.png": "/Art_me/static/media/dance.89e7d79c5027da307feb.png",
@@ -15,15 +15,16 @@
     "static/media/eat.jpg": "/Art_me/static/media/eat.996fde5421b6754bd5f0.jpg",
     "static/media/umb.jpg": "/Art_me/static/media/umb.04ea296cc0716df45439.jpg",
     "static/media/nig.jpg": "/Art_me/static/media/nig.4f5e7a1e059229f44c1d.jpg",
+    "static/media/star.png": "/Art_me/static/media/star.58f47149f0951c21af2b.png",
     "static/media/flow.jpg": "/Art_me/static/media/flow.dcab613f4d8185291822.jpg",
     "static/media/hand.jpg": "/Art_me/static/media/hand.b768f4e50075d162f41f.jpg",
     "index.html": "/Art_me/index.html",
-    "main.912811df.css.map": "/Art_me/static/css/main.912811df.css.map",
-    "main.aba77f93.js.map": "/Art_me/static/js/main.aba77f93.js.map",
+    "main.3adaa90f.css.map": "/Art_me/static/css/main.3adaa90f.css.map",
+    "main.26483689.js.map": "/Art_me/static/js/main.26483689.js.map",
     "787.c202ca43.chunk.js.map": "/Art_me/static/js/787.c202ca43.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.912811df.css",
-    "static/js/main.aba77f93.js"
+    "static/css/main.3adaa90f.css",
+    "static/js/main.26483689.js"
   ]
 }
