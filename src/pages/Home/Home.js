@@ -77,7 +77,7 @@ const Home = () => {
                 <Typography gutterBottom variant="p" className="artist-name">
                   by Damax and Ezra
                 </Typography>
-                <p className="art-description">Lorem Ipsum</p>
+                <p className="art-description">Lorem Ipsuum</p>
               </Box>
             </Box>
           </Grid>
