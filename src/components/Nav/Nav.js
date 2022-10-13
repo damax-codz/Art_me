@@ -92,18 +92,18 @@ const Nav = () => {
           </ul>
         </Box>
         <Box
-          className="btns"
+          className="nav-buttons"
           sx={{
             display: { xs: "none", md: "flex" },
           }}
         >
           <Link to='Art_me/signup' className="nav-btn-link" onClick={startAnim}>
-          <Button variant="outlined" className="nav-btn">
+          <Button variant="outlined" className="nav-main-btn">
             Login
           </Button>
           </Link>
           <Link to='Art_me/signup' className="nav-btn-link" onClick={startAnim}>
-          <Button variant="outlined" className="nav-btn">
+          <Button variant="outlined" className="nav-main-btn">
             Signup
           </Button>
           </Link>

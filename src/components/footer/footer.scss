@@ -1,0 +1,91 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-top: 100px;
+  .footer_text {
+    .footer_text_one {
+      @include font("Quicksand", nans-serif, 700, 40px, rgb(0, 0, 0));
+    }
+    .footer_text_two {
+      @include font("Quicksand", nans-serif, 200, 14px, rgb(0, 0, 0));
+    }
+    .footer_input {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 50px;
+      .css-y738la-MuiFormControl-root-MuiTextField-root {
+        width: 70%;
+      }
+      .css-1ptx2yq-MuiInputBase-root-MuiInput-root:after{
+        border-bottom: 2px solid rgba(165, 42, 42, 1);
+      }
+      .footer_subscribe_btn {
+        background-color: rgba(165, 42, 42, 1);
+        @include font(Noto Sans JP, sans-serif, 200, 13px, white);
+        padding: 0%;
+        text-transform: none;
+        width: 100px;
+      }
+    }
+  }
+  .demo_image_two {
+    display: initial;
+    .star {
+      width: 50px;
+      transform: translate(150px, 50px);
+    }
+    .star_two {
+      width: 50px;
+      transform: translate(50px, 100px);
+    }
+  }
+}
+  .demo_image_one {
+    display: initial;
+    .star {
+      width: 50px;
+      transform: translate(100px, 100px);
+    }
+    .star_two {
+      width: 50px;
+      transform: translate(50px, 200px);
+    }
+  }
+
+
+@media (max-width: 900px) {
+  .footer .footer_text .footer_text_one {
+    font-size: 25px;
+  }
+  .footer .demo_image_two{
+    display: none;
+  }
+  .footer .demo_image_one{
+    display: none;
+  }
+  .footer{
+    grid-template-columns: none;
+    margin: 100px 34px 10px 34px;
+  }
+  .main .page{
+    justify-content: center;
+  }
+  .main .page .img-text{
+    width: 0%;
+    display: none;
+  }
+}
+@media (max-width:500px) {
+    .main .page .left-text{
+        font-size: 60px;
+    }
+}
+

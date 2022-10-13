@@ -25,7 +25,7 @@ const NavSlide = (props) => {
               width: "100%",
             },
             "& .css-m9glnp-MuiPaper-root-MuiDialog-paper": {
-              backgroundColor: "#f8f1f1",
+              backgroundColor: "#ffffff",
             },
           },
          

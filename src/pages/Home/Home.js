@@ -17,6 +17,7 @@ import umb from "../../components/images/umb.jpg";
 import video from "../../components/video/video.mp4";
 import "./home.scss";
 import CallMadeIcon from "@mui/icons-material/CallMade";
+import Footer from "../../components/footer/Footer";
 let showVid = (e) => {
   let vid = document.getElementById("video");
   e.target.style.opacity = ".7";
@@ -205,6 +206,7 @@ const Home = () => {
         </marquee>
       </div> */}
       {/* <Outlet /> */}
+      <Footer />
     </div>
   );
 };

@@ -5,7 +5,6 @@ import './App.css';
 import Nav from './components/Nav/Nav';
 import Home from './pages/Home/Home';
 import Gallery from "./pages/Gallery/Gallery";
-import Footer from './components/footer/footer';
 import Signup from './components/form/singnup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,7 +21,6 @@ function App() {
       <Route path="Art_me/home" element={<Home />} />
       <Route path="Art_me/signup" element={<Signup />} />
     </Routes>
-    {/* <Footer /> */}
   </BrowserRouter>
      
     </div>
