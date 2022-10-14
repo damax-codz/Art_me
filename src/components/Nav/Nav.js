@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // import Navbar from 'react-bootstrap/Navbar'
 // import Container from 'react-bootstrap/Container'
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
-import { Box, Button, Typography,IconButton } from "@mui/material";
+import { Box, Button, Typography, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavSlide from "./NavSlide";
 
 const Nav = () => {
   const [animation, setAnimation] = useState();
   const [showText, setShowText] = useState(false);
+  const navigate = useNavigate();
 
   function startAnim() {
     setAnimation({
@@ -23,7 +24,8 @@ const Nav = () => {
       setAnimation({});
       setTimeout(() => {
         document.body.style.overflow = "scroll";
-      }, 2000);
+        document.body.style.overflowX = "hidden";
+      }, 1500);
     }, 2000);
     setTimeout(() => {
       setShowText(true);
@@ -33,15 +35,14 @@ const Nav = () => {
     }, 500);
   }
   const [open, setOpen] = useState(false);
-  
-  
-     function handleOpenSlideNav() {
-      setOpen(true);
-    }
-    
-      function CloseSideNav() {
-        setOpen(false);
-      }
+
+  function handleOpenSlideNav() {
+    setOpen(true);
+  }
+
+  function CloseSideNav() {
+    setOpen(false);
+  }
   return (
     <>
       <nav className="nav-container">
@@ -49,7 +50,7 @@ const Nav = () => {
           <Box className="anim">
             <motion.div
               animate={animation}
-              transition={{ duration: 2.5 }}
+              transition={{ duration: 2 }}
               className="anim-circle"
             >
               {showText && (
@@ -70,24 +71,44 @@ const Nav = () => {
         >
           <ul>
             <li className="nav-container-link" onClick={startAnim}>
-              <Link to="Art_me/home" className="link">
+              <a
+                className="link"
+                onClick={() => {
+                  setTimeout(() => navigate("Art_me/home"), 1000);
+                }}
+              >
                 Home
-              </Link>
+              </a>
             </li>
             <li className="nav-container-link" onClick={startAnim}>
-              <Link to="Art_me/home" className="link">
+              <a
+                className="link"
+                onClick={() => {
+                  setTimeout(() => navigate("Art_me/home"), 1000);
+                }}
+              >
                 Artist
-              </Link>
+              </a>
             </li>
             <li className="nav-container-link" onClick={startAnim}>
-              <Link to="Art_me/gallery" className="link">
+              <a
+                className="link"
+                onClick={() => {
+                  setTimeout(() => navigate("Art_me/gallery"), 1000);
+                }}
+              >
                 shop
-              </Link>
+              </a>
             </li>
             <li className="nav-container-link" onClick={startAnim}>
-              <Link to="Art_me/home" className="link">
+              <a
+                className="link"
+                onClick={() => {
+                  setTimeout(() => navigate("Art_me/home"), 1000);
+                }}
+              >
                 About
-              </Link>
+              </a>
             </li>
           </ul>
         </Box>
@@ -97,31 +118,31 @@ const Nav = () => {
             display: { xs: "none", md: "flex" },
           }}
         >
-          <Link to='Art_me/signup' className="nav-btn-link" onClick={startAnim}>
-          <Button variant="outlined" className="nav-main-btn">
-            Login
-          </Button>
+          <Link to="Art_me/signup" className="nav-btn-link" onClick={startAnim}>
+            <Button variant="outlined" className="nav-main-btn">
+              Login
+            </Button>
           </Link>
-          <Link to='Art_me/signup' className="nav-btn-link" onClick={startAnim}>
-          <Button variant="outlined" className="nav-main-btn">
-            Signup
-          </Button>
+          <Link to="Art_me/signup" className="nav-btn-link" onClick={startAnim}>
+            <Button variant="outlined" className="nav-main-btn">
+              Signup
+            </Button>
           </Link>
         </Box>
 
-        <Box className="hamburger"  sx={{
+        <Box
+          className="hamburger"
+          sx={{
             display: { xs: "flex", md: "none" },
-          }} onClick={handleOpenSlideNav}>
-          <IconButton aria-label="menu" sx={{width:"50px",height:"50px"}}>
-            <MenuIcon sx={{ fontSize: 40,color:"#000000" }} />
+          }}
+          onClick={handleOpenSlideNav}
+        >
+          <IconButton aria-label="menu" sx={{ width: "50px", height: "50px" }}>
+            <MenuIcon sx={{ fontSize: 40, color: "#000000" }} />
           </IconButton>
         </Box>
-        
-        
       </nav>
-        <NavSlide openSideNavValue={open} closeSideNav={CloseSideNav} />
-
- 
+      <NavSlide openSideNavValue={open} closeSideNav={CloseSideNav} />
     </>
   );
 };
