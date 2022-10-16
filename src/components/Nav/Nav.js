@@ -97,7 +97,7 @@ const Nav = () => {
                   setTimeout(() => navigate("Art_me/gallery"), 1000);
                 }}
               >
-                shop
+                Gallery
               </a>
             </li>
             <li className="nav-container-link" onClick={startAnim}>

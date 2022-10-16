@@ -75,7 +75,7 @@ const NavSlide = (props) => {
             onClick={props.closeSideNav}
             className="links"
           >
-            Shop
+           Gallery
           </Link>
           <hr />
 

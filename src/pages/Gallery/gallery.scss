@@ -1,0 +1,97 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+
+.gallery_page {
+  //   margin-top: 40px;
+  //   margin: 40px 20px 0px;
+
+  .top_header {
+    display: flex;
+    justify-content: center;
+    @include font("Quicksand", nans-serif, 700, 40px, rgb(0, 0, 0));
+  }
+  .top_nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 15px;
+    align-items: baseline;
+    margin-bottom: -10px;
+    .search {
+      display: flex;
+      align-items: baseline;
+      .select_sort {
+        .css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
+          padding: 4px 0px 4px;
+        }
+      }
+      label {
+        @include font(Noto Sans JP, sans-serif, 200, 12px, black);
+      }
+      ::after {
+        display: none;
+      }
+      ::before {
+        display: none;
+      }
+      .search_input {
+        margin-right: 3px;
+      }
+    }
+    .filters {
+      @include font("Quicksand", nans-serif, 200, 14px, rgb(0, 0, 0));
+      cursor: pointer;
+    }
+  }
+  .gallery_display_page {
+    width: 100%;
+    display: flex;
+    .gallery_side_nav {
+      @include font("Quicksand", nans-serif, 200, 14px, rgb(0, 0, 0));
+      nav {
+        span {
+          @include font("Quicksand", nans-serif, 200, 14px, rgb(0, 0, 0));
+        }
+      }
+    }
+    .gallery_image_display {
+      // background-color: rgba(0, 0, 0, 0.092);
+      min-height: 100vh;
+      transition: 500ms;
+      margin-left: 10px;
+      .gallery_container {
+        .art_container {
+            cursor: pointer;
+            transition: 500ms;
+          .image_wrapper {
+            background-color: rgba(175, 187, 161, 0.119);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 50%;
+                height: 60%;
+            }
+          }
+          .art_description{
+            padding: 10px 10px;
+            .art_name{
+                @include font("Quicksand", nans-serif, 500, 16px, rgb(0, 0, 0));
+            }
+            .art_owner{
+                @include font("Quicksand", nans-serif, 500, 16px, rgb(0, 0, 0));
+            }
+            .art_price{
+                @include font("Quicksand", nans-serif, 500, 16px, rgb(0, 0, 0));
+            }
+          }
+        
+        }
+      }
+    }
+  }
+}

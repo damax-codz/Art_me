@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { link, Outlet } from "react-router-dom";
+import { Link, link, Outlet } from "react-router-dom";
 import anim from "../../components/images/anim.jpg";
 import dance from "../../components/images/dance.png";
 import eat from "../../components/images/eat.jpg";
@@ -179,33 +179,15 @@ const Home = () => {
             </Box>
           </Grid>
         </Grid>
+        <Link to="/Art_me/gallery" className="more_collections_wrapper">
         <Button className="more_collections" variant="contained">
           Discover more collections{" "}
           <CallMadeIcon sx={{ fontSize: 15, marginLeft: "3px" }} />
         </Button>
+        </Link>
       </div>
 
-      {/* <h1 id="COLLECTION">
-        CHECK OUR <span id="COL">COLLECTION</span>
-      </h1> */}
-      {/* wanna add some disabled buttons scrolling showing types of art present */}
-      {/* <div className="imageslide">
-      <marquee width="100%" direction="left" scrollamount="12" behavior="scroll" >
-        <img src={dance} className="container-img" alt="anim" />
-        <img src={eat} a className="container-img"lt="anim" />
-        <img src={flow}  className="container-img"alt="anim" />
-        <img src={hand}  className="container-img"alt="anim" />
-        <img src={haus}  className="container-img"alt="anim" />
-        <img src={lit} alt="anim" />
-        <img src={mam} alt="anim" />
-        <img src={mast} alt="anim" />
-        <img src={mil} alt="anim" />
-        <img src={mon} alt="anim" />
-        <img src={nig} alt="anim" />
-        <img src={umb} alt="anim" />
-        </marquee>
-      </div> */}
-      {/* <Outlet /> */}
+ 
       <Footer />
     </div>
   );
