@@ -1,30 +1,26 @@
 {
   "files": {
-    "main.css": "/Art_me/static/css/main.ec0ede3c.css",
-    "main.js": "/Art_me/static/js/main.5e0442d3.js",
+    "main.css": "/Art_me/static/css/main.973cd172.css",
+    "main.js": "/Art_me/static/js/main.b60d6317.js",
     "static/js/787.c202ca43.chunk.js": "/Art_me/static/js/787.c202ca43.chunk.js",
-    "static/media/video.mp4": "/Art_me/static/media/video.bbc8c9a759961e6ec7b0.mp4",
     "static/media/dance.png": "/Art_me/static/media/dance.89e7d79c5027da307feb.png",
     "static/media/lit.jpg": "/Art_me/static/media/lit.4815ead7a5ccb684d7b1.jpg",
     "static/media/mam.jpg": "/Art_me/static/media/mam.1cb20ff4bbc6845b44c9.jpg",
     "static/media/anim.jpg": "/Art_me/static/media/anim.399d474578bc8a52cf09.jpg",
-    "static/media/haus.jpg": "/Art_me/static/media/haus.0001d36efc9fd305a2c0.jpg",
-    "static/media/mil.jpg": "/Art_me/static/media/mil.29a009ad42367e557cd9.jpg",
-    "static/media/mast.jpg": "/Art_me/static/media/mast.0c7af176da88486a7a2f.jpg",
-    "static/media/mon.jpg": "/Art_me/static/media/mon.ac01f2423a5113125931.jpg",
+    "static/media/focus.png": "/Art_me/static/media/focus.d5ebd9a3e88a13689c0f.png",
     "static/media/eat.jpg": "/Art_me/static/media/eat.996fde5421b6754bd5f0.jpg",
-    "static/media/umb.jpg": "/Art_me/static/media/umb.04ea296cc0716df45439.jpg",
-    "static/media/nig.jpg": "/Art_me/static/media/nig.4f5e7a1e059229f44c1d.jpg",
+    "static/media/Making_art.png": "/Art_me/static/media/Making_art.102663c09dde81a55a56.png",
     "static/media/star.png": "/Art_me/static/media/star.58f47149f0951c21af2b.png",
     "static/media/flow.jpg": "/Art_me/static/media/flow.dcab613f4d8185291822.jpg",
     "static/media/hand.jpg": "/Art_me/static/media/hand.b768f4e50075d162f41f.jpg",
+    "static/media/google.png": "/Art_me/static/media/google.3b44a32b77f4074c1956.png",
     "index.html": "/Art_me/index.html",
-    "main.ec0ede3c.css.map": "/Art_me/static/css/main.ec0ede3c.css.map",
-    "main.5e0442d3.js.map": "/Art_me/static/js/main.5e0442d3.js.map",
+    "main.973cd172.css.map": "/Art_me/static/css/main.973cd172.css.map",
+    "main.b60d6317.js.map": "/Art_me/static/js/main.b60d6317.js.map",
     "787.c202ca43.chunk.js.map": "/Art_me/static/js/787.c202ca43.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec0ede3c.css",
-    "static/js/main.5e0442d3.js"
+    "static/css/main.973cd172.css",
+    "static/js/main.b60d6317.js"
   ]
 }
