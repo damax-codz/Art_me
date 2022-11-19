@@ -164,3 +164,9 @@
     height: 400px;
   }
 }
+
+@media (max-width:600px) {
+  .nav-container .nav-title .nav-title-text{
+    font-size: 30px;
+  }
+}

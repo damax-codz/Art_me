@@ -58,7 +58,13 @@ const Nav = () => {
               )}
             </motion.div>
           </Box>
-          <Typography variant="h3" className="nav-title-text">
+          <Typography
+            variant="h3"
+            className="nav-title-text"
+            onClick={() => {
+              setTimeout(() => navigate("/Art_me/home"), 2000);
+            }}
+          >
             Artme{" "}
           </Typography>
         </Box>
@@ -74,7 +80,7 @@ const Nav = () => {
               <a
                 className="link"
                 onClick={() => {
-                  setTimeout(() => navigate("Art_me/home"), 1000);
+                  setTimeout(() => navigate("/Art_me/home"), 2000);
                 }}
               >
                 Home
@@ -84,7 +90,7 @@ const Nav = () => {
               <a
                 className="link"
                 onClick={() => {
-                  setTimeout(() => navigate("Art_me/home"), 1000);
+                  setTimeout(() => navigate("/Art_me/home"), 2000);
                 }}
               >
                 Artist
@@ -94,7 +100,7 @@ const Nav = () => {
               <a
                 className="link"
                 onClick={() => {
-                  setTimeout(() => navigate("Art_me/gallery"), 1000);
+                  setTimeout(() => navigate("/Art_me/gallery"), 2000);
                 }}
               >
                 Gallery
@@ -104,7 +110,7 @@ const Nav = () => {
               <a
                 className="link"
                 onClick={() => {
-                  setTimeout(() => navigate("Art_me/home"), 1000);
+                  setTimeout(() => navigate("/Art_me/home"), 2000);
                 }}
               >
                 About
@@ -118,16 +124,28 @@ const Nav = () => {
             display: { xs: "none", md: "flex" },
           }}
         >
-          <Link to="Art_me/signup" className="nav-btn-link" onClick={startAnim}>
-            <Button variant="outlined" className="nav-main-btn">
+          <a className="nav-btn-link" onClick={startAnim}>
+            <Button
+              onClick={() => {
+                setTimeout(() => navigate("/Art_me/login"), 2000);
+              }}
+              variant="outlined"
+              className="nav-main-btn"
+            >
               Login
             </Button>
-          </Link>
-          <Link to="Art_me/signup" className="nav-btn-link" onClick={startAnim}>
-            <Button variant="outlined" className="nav-main-btn">
+          </a>
+          <a className="nav-btn-link" onClick={startAnim}>
+            <Button
+              onClick={() => {
+                setTimeout(() => navigate("/Art_me/signup"), 2000);
+              }}
+              variant="outlined"
+              className="nav-main-btn"
+            >
               Signup
             </Button>
-          </Link>
+          </a>
         </Box>
 
         <Box

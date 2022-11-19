@@ -22,6 +22,7 @@
     .nav-title-text {
       @include font(Satisfy, cursive, 600, 54px, #33343d);
       margin-left: 5px;
+      cursor: pointer;
     }
     .anim {
       z-index: 100;

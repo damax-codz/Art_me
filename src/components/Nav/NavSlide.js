@@ -3,13 +3,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
 import { Box, Button, IconButton, Slide, Typography } from "@mui/material";
 import "./NavSlide.scss";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
 });
 
 const NavSlide = (props) => {
+  const navigate = useNavigate();
   return (
     <div>
       <Dialog
@@ -28,7 +30,7 @@ const NavSlide = (props) => {
               backgroundColor: "#ffffff",
             },
           },
-         
+
           background: "rgba(229,229,229,0.4)",
           display: { md: "none" },
         }}
@@ -45,7 +47,13 @@ const NavSlide = (props) => {
         >
           <Box className="mainpage-logo">
             <Box className="anim-circle"></Box>
-            <Typography variant="h3" className="nav-title-text">
+            <Typography
+              variant="h3"
+              className="nav-title-text"
+              onClick={() => {
+                setTimeout(() => navigate("/Art_me/home"), 1000);
+              }}
+            >
               Artme{" "}
             </Typography>
           </Box>
@@ -62,35 +70,55 @@ const NavSlide = (props) => {
         </Box>
 
         <Box className="nav-slide-links">
-          <Link to="Art_me/home" onClick={props.closeSideNav} className="links">
+          <Link
+            to="/Art_me/home"
+            onClick={props.closeSideNav}
+            className="links"
+          >
             Home
           </Link>
           <hr />
-          <Link to="Art_me/home" onClick={props.closeSideNav} className="links">
+          <Link
+            to="/Art_me/home"
+            onClick={props.closeSideNav}
+            className="links"
+          >
             Artist
           </Link>
           <hr />
           <Link
-            to="Art_me/gallery"
+            to="/Art_me/gallery"
             onClick={props.closeSideNav}
             className="links"
           >
-           Gallery
+            Gallery
           </Link>
           <hr />
 
-          <Link to="Art_me/home" onClick={props.closeSideNav} className="links">
+          <Link
+            to="/Art_me/home"
+            onClick={props.closeSideNav}
+            className="links"
+          >
             About
           </Link>
           <hr />
 
           <Box className="btns">
-            <Link to="Art_me/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
+            <Link
+              to="/Art_me/login"
+              className="nav-slide-btn-link"
+              onClick={props.closeSideNav}
+            >
               <Button variant="outlined" className="nav-btn">
                 Login
               </Button>
             </Link>
-            <Link to="Art_me/signup" className="nav-slide-btn-link" onClick={props.closeSideNav}>
+            <Link
+              to="/Art_me/signup"
+              className="nav-slide-btn-link"
+              onClick={props.closeSideNav}
+            >
               <Button variant="contained" className="nav-btn signup-btn">
                 Signup
               </Button>

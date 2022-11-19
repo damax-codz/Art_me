@@ -1,0 +1,134 @@
+@mixin font($f, $s, $w, $size, $c) {
+    font-family: $f;
+    font-style: $s;
+    font-weight: $w;
+    font-size: $size;
+    color: $c;
+  }
+  
+  .login_container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    .form_box {
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        width: 100%;
+  
+        .welcome_back {
+          @include font(Cinzel Decorative, cursive, 600, 25px, black);
+          text-transform: none
+        }
+        .welcome_back_text {
+          @include font(Quicksand, nans-serif, 400, 14px, rgb(0, 0, 0, 0.6));
+          line-height: 30px;
+          margin-bottom: 20px;
+        }
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .form_input_wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            label {
+              @include font(Quicksand, nans-serif, 600, 14px, rgb(0, 0, 0));
+              line-height: 30px;
+              margin-top: 10px;
+            }
+            input {
+              padding: 5px 10px;
+              border: 1px solid rgba(0, 0, 0, 0.4);
+              &:focus {
+                outline: none;
+                border: 1px solid black;
+              }
+            }
+            .error_message {
+              @include font("Quicksand", nans-serif, 600, 13px, rgb(221, 8, 8));
+            }
+            .info_error {
+              border: 1px solid rgb(221, 8, 8);
+            }
+          }
+          .btn_container {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .sign_in_btn {
+              border-radius: 0%;
+              width: 60%;
+              margin: 5px 0px;
+              background-color: rgba(165, 42, 42, 1);
+              @include font(
+                "Quicksand",
+                nans-serif,
+                500,
+                13px,
+                rgb(255, 255, 255)
+              );
+              text-transform: none;
+            }
+            .sign_in_ggl_btn {
+              background-color: white;
+              border-radius: 0%;
+              width: 60%;
+              margin: 5px 0px;
+              border: 1px solid rgba(0, 0, 0, 0.4);
+              @include font("Quicksand", nans-serif, 500, 13px, rgb(0, 0, 0));
+              text-transform: none;
+            }
+          }
+        }
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        margin: 10px 20px;
+        .logo_circle {
+          width: 20px;
+          height: 20px;
+          background-color: rgba(165, 42, 42, 1);
+          border-radius: 50%;
+        }
+        .nav-title-text {
+          @include font(Satisfy, cursive, 600, 45px, #33343d);
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+      .no_account {
+        @include font("Quicksand", nans-serif, 400, 14px, rgb(0, 0, 0, 0.6));
+        display: flex;
+        justify-content: center;
+        a {
+          text-decoration: none;
+          @include font("Quicksand", nans-serif, 600, 14px, rgb(0, 0, 0));
+          margin-left: 5px;
+          transition: 0.5s;
+          &:hover {
+            color: #a52a2a;
+          }
+        }
+      }
+    }
+    .image_box {
+      min-height: 100vh;
+      .art_image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  
