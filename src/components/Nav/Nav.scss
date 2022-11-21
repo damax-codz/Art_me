@@ -58,7 +58,13 @@
         .link {
           text-decoration: none;
           transition: 0.5s;
-          @include font(Noto Sans JP, sans-serif, 600, 15px, rgba(0, 0, 0, 0.583));
+          @include font(
+            Noto Sans JP,
+            sans-serif,
+            600,
+            15px,
+            rgba(0, 0, 0, 0.583)
+          );
           &:hover {
             color: rgba(165, 42, 42, 1);
           }
@@ -67,17 +73,12 @@
     }
   }
   .nav-buttons {
+    align-items: center;
     .nav-btn-link {
       text-decoration: none;
       .nav-main-btn {
         border: 1px solid rgba(165, 42, 42, 1);
-        @include font(
-          Noto Sans JP,
-          sans-serif,
-          400,
-          13px,
-          white
-        );
+        @include font(Noto Sans JP, sans-serif, 400, 13px, white);
         width: 120px;
         height: 40px;
         margin: 0px 5px;
@@ -88,5 +89,64 @@
         }
       }
     }
+    .nav-search {
+      margin: 0px 10px 0px 0px;
+
+      .icon {
+        padding: 10px;
+        min-width: 40px;
+        position: absolute;
+      }
+
+      .input-field {
+        padding: 0px 35px;
+        width: 145.03px;
+        height: 40px;
+        background: rgba(232, 229, 229, 0.619);
+        border-radius: 5px;
+        border: none;
+        &::placeholder {
+          @include font(Noto Sans JP, normal, 400, 14px, rgba(0, 0, 0, 0.4));
+        }
+      }
+
+      .input-field:focus {
+        outline: none !important;
+        border: none;
+      }
+    }
+    // .profile {
+    //   display: flex;
+    //   align-items: center;
+    //   margin-right: 10px;
+    //   .profile_name {
+    //     @include font(Noto Sans JP, normal, 400, 12px, rgba(0, 0, 0, 0.7));
+    //   }
+      .profile_pics {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(152, 129, 129);
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    // }
+    .log-nav-main-btn {
+      border: 1px solid rgba(165, 42, 42, 0.872);
+      @include font(Noto Sans JP, sans-serif, 400, 13px, white);
+      width: 100px;
+      height: 40px;
+      margin: 0px 5px;
+      background-color: rgba(165, 42, 42, 0.824);
+      text-transform: none;
+      &:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgba(165, 42, 42, 1);
+      }
+    }
+  }
+  .logged_in_nav {
+    display: flex;
+    align-items: center;
   }
 }

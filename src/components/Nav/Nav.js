@@ -5,17 +5,27 @@ import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
-import { Box, Button, Typography, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  IconButton,
+  FormControl,
+  Input,
+  InputAdornment,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
+import { useSelector } from "react-redux";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Nav = () => {
   const [animation, setAnimation] = useState();
   const [showText, setShowText] = useState(false);
-  const [ LoggedModalStatus,setLoggedModalStatus ] = useState(false)
+  const [LoggedModalStatus, setLoggedModalStatus] = useState(false);
   const navigate = useNavigate();
-  
+  const { logvalue } = useSelector((state) => state.logged);
 
   function startAnim() {
     setAnimation({
@@ -47,134 +57,276 @@ const Nav = () => {
     setOpen(false);
   }
 
-  function handleLoggedModalClose(){
-    setLoggedModalStatus(!LoggedModalStatus)
+  function handleLoggedModalClose() {
+    setLoggedModalStatus(!LoggedModalStatus);
   }
-  function handleLoggedModalOpen(){
+  function handleLoggedModalOpen() {
     // would first useSelector to check if the person is logged in if not prompt the login modal if the
     // person is logged in, would navigate to gallery
-    // navigate("/Art_me/gallery") if person is logged in 
-    setLoggedModalStatus(!LoggedModalStatus)
+    // navigate("/Art_me/gallery") if person is logged in
+    setLoggedModalStatus(!LoggedModalStatus);
   }
   return (
     <>
-      <nav className="nav-container">
-        <Box className="nav-title">
-          <Box className="anim">
-            <motion.div
-              animate={animation}
-              transition={{ duration: 2 }}
-              className="anim-circle"
-            >
-              {showText && (
-                <Typography className="anim-circle-text">Artme ..</Typography>
-              )}
-            </motion.div>
-          </Box>
-          <Typography
-            variant="h3"
-            className="nav-title-text"
-            onClick={() => {
-              setTimeout(() => navigate("/Art_me/home"), 2000);
-            }}
-          >
-            Artme{" "}
-          </Typography>
-        </Box>
+      {logvalue ? (
+        <>
+          <nav className="nav-container">
+            <Box className="logged_in_nav">
+              <Box className="nav-title">
+                <Box className="anim">
+                  <motion.div
+                    animate={animation}
+                    transition={{ duration: 2 }}
+                    className="anim-circle"
+                  >
+                    {showText && (
+                      <Typography className="anim-circle-text">
+                        Artme ..
+                      </Typography>
+                    )}
+                  </motion.div>
+                </Box>
+                <Typography
+                  variant="h3"
+                  className="nav-title-text"
+                  onClick={() => {
+                    setTimeout(() => navigate("/Art_me/home"), 2000);
+                  }}
+                >
+                  Artme{" "}
+                </Typography>
+              </Box>
 
-        <Box
-          className="nav-links"
-          sx={{
-            display: { xs: "none", md: "flex" },
-          }}
-        >
-          <ul>
-            <li className="nav-container-link" onClick={startAnim}>
               <Box
-                className="link"
-                onClick={() => {
-                  setTimeout(() => navigate("/Art_me/home"), 2000);
+                className="nav-links"
+                sx={{
+                  display: { xs: "none", md: "flex" },
                 }}
               >
-                Home
-              </Box>
-            </li>
-            <li className="nav-container-link" onClick={startAnim}>
-              <Box
-                className="link"
-                onClick={() => {
-                  setTimeout(() => navigate("/Art_me/home"), 2000);
-                }}
-              >
-              Find Artist
-              </Box>
-            </li>
+                <ul>
+                  <li className="nav-container-link" onClick={startAnim}>
+                    <Box
+                      className="link"
+                      onClick={() => {
+                        setTimeout(() => navigate("/Art_me/home"), 2000);
+                      }}
+                    >
+                      Home
+                    </Box>
+                  </li>
+                  <li className="nav-container-link" onClick={startAnim}>
+                    <Box
+                      className="link"
+                      onClick={() => {
+                        setTimeout(() => navigate("/Art_me/home"), 2000);
+                      }}
+                    >
+                      Find Artist
+                    </Box>
+                  </li>
 
-            {/* i can later hide this link to be viewable by only those who are logged in  */}
-            <li className="nav-container-link">
-              <Box
-                className="link"
-                onClick={handleLoggedModalOpen}
-              >
-                Gallery
+                  {/* i can later hide this link to be viewable by only those who are logged in  */}
+                  <li className="nav-container-link">
+                    <Box
+                      className="link"
+                      onClick={() => {
+                        setTimeout(() => navigate("/Art_me/gallery"), 2000);
+                      }}
+                    >
+                      Gallery
+                    </Box>
+                  </li>
+                  <li className="nav-container-link" onClick={startAnim}>
+                    <Box
+                      className="link"
+                      onClick={() => {
+                        setTimeout(() => navigate("/Art_me/home"), 2000);
+                      }}
+                    >
+                      About
+                    </Box>
+                  </li>
+                </ul>
               </Box>
-            </li>
-            <li className="nav-container-link" onClick={startAnim}>
-              <Box
-                className="link"
-                onClick={() => {
-                  setTimeout(() => navigate("/Art_me/home"), 2000);
-                }}
-              >
-                About
-              </Box>
-            </li>
-          </ul>
-        </Box>
-        <Box
-          className="nav-buttons"
-          sx={{
-            display: { xs: "none", md: "flex" },
-          }}
-        >
-          <Box className="nav-btn-link" onClick={startAnim}>
-            <Button
-              onClick={() => {
-                setTimeout(() => navigate("/Art_me/login"), 2000);
+            </Box>
+
+            {/* creating search buttons profile and upload button */}
+            <Box
+              className="nav-buttons"
+              sx={{
+                display: { xs: "none", md: "flex" },
               }}
-              variant="outlined"
-              className="nav-main-btn"
             >
-              Login
-            </Button>
-          </Box>
-          <Box className="nav-btn-link" onClick={startAnim}>
-            <Button
-              onClick={() => {
-                setTimeout(() => navigate("/Art_me/signup"), 2000);
-              }}
-              variant="outlined"
-              className="nav-main-btn"
-            >
-              Signup
-            </Button>
-          </Box>
-        </Box>
+              <Box className="nav-search">
+                <IconButton className="icon">
+                  <SearchIcon />
+                </IconButton>
+                <input class="input-field" type="text" placeHolder="Search" />
+              </Box>
 
-        <Box
-          className="hamburger"
-          sx={{
-            display: { xs: "flex", md: "none" },
-          }}
-          onClick={handleOpenSlideNav}
-        >
-          <IconButton aria-label="menu" sx={{ width: "50px", height: "50px" }}>
-            <MenuIcon sx={{ fontSize: 40, color: "#000000" }} />
-          </IconButton>
-        </Box>
-      </nav>
-      <NavSlide openSideNavValue={open} closeSideNav={CloseSideNav} />
-      <NotLogged  LoggedModalStatus={LoggedModalStatus} handleLoggedModalClose={handleLoggedModalClose} />
+              {/* <Box className="profile"> */}
+              <Box className="profile_pics"></Box>
+              {/* <p className="profile_name">Lorem Ipsum</p> */}
+              {/* </Box> */}
+
+              <Button
+                // onClick={() => {
+                //   setTimeout(() => navigate("/Art_me/login"), 2000);
+                // }}
+                variant="contained"
+                className="log-nav-main-btn"
+              >
+                upload
+              </Button>
+            </Box>
+
+            <Box
+              className="hamburger"
+              sx={{
+                display: { xs: "flex", md: "none" },
+              }}
+              onClick={handleOpenSlideNav}
+            >
+              <IconButton
+                aria-label="menu"
+                sx={{ width: "50px", height: "50px" }}
+              >
+                <MenuIcon sx={{ fontSize: 40, color: "#000000" }} />
+              </IconButton>
+            </Box>
+          </nav>
+          <NavSlide openSideNavValue={open} closeSideNav={CloseSideNav} />
+          <NotLogged
+            LoggedModalStatus={LoggedModalStatus}
+            handleLoggedModalClose={handleLoggedModalClose}
+          />
+        </>
+      ) : (
+        <>
+          <nav className="nav-container">
+            <Box className="nav-title">
+              <Box className="anim">
+                <motion.div
+                  animate={animation}
+                  transition={{ duration: 2 }}
+                  className="anim-circle"
+                >
+                  {showText && (
+                    <Typography className="anim-circle-text">
+                      Artme ..
+                    </Typography>
+                  )}
+                </motion.div>
+              </Box>
+              <Typography
+                variant="h3"
+                className="nav-title-text"
+                onClick={() => {
+                  setTimeout(() => navigate("/Art_me/home"), 2000);
+                }}
+              >
+                Artme{" "}
+              </Typography>
+            </Box>
+
+            <Box
+              className="nav-links"
+              sx={{
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              <ul>
+                <li className="nav-container-link" onClick={startAnim}>
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/home"), 2000);
+                    }}
+                  >
+                    Home
+                  </Box>
+                </li>
+                <li className="nav-container-link" onClick={startAnim}>
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/home"), 2000);
+                    }}
+                  >
+                    Find Artist
+                  </Box>
+                </li>
+
+                {/* i can later hide this link to be viewable by only those who are logged in  */}
+                {/* <li className="nav-container-link">
+                  <Box className="link" onClick={handleLoggedModalOpen}>
+                    Gallery
+                  </Box>
+                </li> */}
+                <li className="nav-container-link" onClick={startAnim}>
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/home"), 2000);
+                    }}
+                  >
+                    About
+                  </Box>
+                </li>
+              </ul>
+            </Box>
+            <Box
+              className="nav-buttons"
+              sx={{
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              <Box className="nav-btn-link" onClick={startAnim}>
+                <Button
+                  onClick={() => {
+                    setTimeout(() => navigate("/Art_me/login"), 2000);
+                  }}
+                  variant="outlined"
+                  className="nav-main-btn"
+                >
+                  Login
+                </Button>
+              </Box>
+              <Box className="nav-btn-link" onClick={startAnim}>
+                <Button
+                  onClick={() => {
+                    setTimeout(() => navigate("/Art_me/signup"), 2000);
+                  }}
+                  variant="outlined"
+                  className="nav-main-btn"
+                >
+                  Signup
+                </Button>
+              </Box>
+            </Box>
+
+            <Box
+              className="hamburger"
+              sx={{
+                display: { xs: "flex", md: "none" },
+              }}
+              onClick={handleOpenSlideNav}
+            >
+              <IconButton
+                aria-label="menu"
+                sx={{ width: "50px", height: "50px" }}
+              >
+                <MenuIcon sx={{ fontSize: 40, color: "#000000" }} />
+              </IconButton>
+            </Box>
+          </nav>
+          <NavSlide openSideNavValue={open} closeSideNav={CloseSideNav} />
+          <NotLogged
+            LoggedModalStatus={LoggedModalStatus}
+            handleLoggedModalClose={handleLoggedModalClose}
+          />
+        </>
+      )}
     </>
   );
 };

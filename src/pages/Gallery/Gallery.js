@@ -22,6 +22,8 @@ import axios from "axios";
 import "./gallery.scss";
 import { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
+import LoveIcon from "../../components/images/icons/heart.png";
+import Footer from "../../components/footer/Footer";
 
 const Gallery = () => {
   const [sort, setSort] = useState("");
@@ -81,8 +83,9 @@ const Gallery = () => {
     <>
       <Nav />
       <Box className="gallery_page">
-        <hr />
         <Typography className="top_header">{galleryCategory}</Typography>
+        <Typography className="top_header_sub">Check out some of today’s popular collections</Typography>
+
         <Box className="top_nav">
           <Box className="filters" onClick={changeFilterStatus}>
             Filters{" "}
@@ -289,43 +292,57 @@ const Gallery = () => {
             className="gallery_image_display"
             sx={{  width: {xs: openFilters ? "0%" : "100%", md: openFilters ? "70%" : "100%" } }}
           >
-            <Grid container className="gallery_container" spacing={2}>
-              {unsplashImages
-                ? unsplashImages.map((item, index) => {
-                    return (
-                      <Grid
-                        item
-                        md={openFilters ? 4 : 3}
-                        xs={ 12 }
-                        key={index}
-                      >
-                        <Box className="art_container" sx={{ width: "100%" }}>
+            <Grid container className="image-grid" spacing={4}>
+            {unsplashImages
+              ? unsplashImages.map((item, index) => {
+                  return (
+                    <Grid
+                      item
+                      md={openFilters ? 4 : 3}
+                      xs={ 12 }
+                      key={index}
+                      className="grid_container"
+                    >
+                      <Box
+                        component="img"
+                        className="grid_image"
+                        src={item.urls.full}
+                        alt="art-images"
+                      />
+
+                      <Box className="grid_image_details">
+                        <Box className="profile">
                           <Box
-                            className="image_wrapper"
-                            sx={{ height: "320px" }}
-                          >
-                            <img src={item.urls.full} alt="demo" />
-                          </Box>
-                          <Box className="art_description">
-                            <Typography className="art_name">
-                              {item.user.first_name}
-                            </Typography>
-                            <Typography className="art_owner">
-                              by {item.user.name}
-                            </Typography>
-                            <Typography className="art_price">
-                              ${item.likes}
-                            </Typography>
-                          </Box>
+                            className="detail_profile"
+                            component="img"
+                            src={item.user.profile_image.small}
+                            alt="profile"
+                          />
+                          <Typography className="detail_name">
+                            {item.user.first_name} {item.user.last_name}
+                          </Typography>
                         </Box>
-                      </Grid>
-                    );
-                  })
-                : null}
-            </Grid>
+                        <Box className="detail_likes">
+                          {" "}
+                          <Box
+                            className="detail_love"
+                            component="img"
+                            src={LoveIcon}
+                            sx={{width:"15px",marginRight:"3px"}}
+                            alt="like"
+                          />
+                          {item.likes}
+                        </Box>
+                      </Box>
+                    </Grid>
+                  );
+                })
+              : null}
+          </Grid>
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };

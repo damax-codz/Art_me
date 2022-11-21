@@ -22,7 +22,7 @@ const Home = () => {
         `https://api.unsplash.com/search/photos?query=art&count=40&client_id=g6gZZ_6ytLizxTOCGRUijH2d-aAJ0Yul2bWy7CUzTyo`
       );
       setUnsplashImages(response.data.results);
-      console.log(response.data.results);
+      // console.log(response.data.results);
     } catch (error) {
       console.error(error);
     }

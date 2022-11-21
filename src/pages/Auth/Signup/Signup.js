@@ -8,14 +8,42 @@ import GoogleIcon from "./../../../components/images/icons/google.png";
 import Art_lover from "./../../../components/images/focus.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+// import axios from "axios";
+// import { loggedIn } from "../../../redux/Logged";
+// import { useDispatch } from "react-redux/es/exports";
 
 const Signup = () => {
   const [passwordState, SetPasswordState] = useState(true);
-
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const passwordVisibility = () => {
     SetPasswordState(!passwordState);
   };
+
+
+  // WAITING FOR CHANGE IN BACKEND
+
+  // async function handleFormSubmit(body) {
+  //   try {
+  //     const response = await axios({
+  //       method: "post",
+  //       url: "http://artme-backend.herokuapp.com/api/signup",
+  //       data: body,
+  //       headers: { "Content-Type": "application/json" },
+  //     });
+  //     // console.log(response);
+
+  //     if (response.status === 200) {
+  //       dispatch(loggedIn());
+  //       navigate("/Art_me/gallery")
+  //     }
+
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+
   return (
     <div className="login_container">
       <Box className="form_box"  sx={{ width:{xs: "100%", md:"40%"}}}> 
@@ -55,13 +83,14 @@ const Signup = () => {
                 .required("you need to renter your password")
                 .oneOf([Yup.ref("password"), null], "Passwords must match"),
             })}
-            // onSubmit={async (values) => {
-            //   const body = {
-            //     fullname: values.fullname,
-            //     email: values.email,
-            //     password: values.password,
-            //   };
-            // }}
+            onSubmit={async (values) => {
+              const body = {
+                fullname: values.fullname,
+                email: values.email,
+                password: values.password,
+              };
+              // handleFormSubmit(JSON.stringify(body));
+            }}
           >
             {({
               values,

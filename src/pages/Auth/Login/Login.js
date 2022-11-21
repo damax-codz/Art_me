@@ -1,5 +1,5 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.scss";
 import { Formik } from "formik";
@@ -8,28 +8,63 @@ import GoogleIcon from "./../../../components/images/icons/google.png";
 import Art_lover from "./../../../components/images/Making_art.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import axios from "axios"; 
+import axios from "axios";
+import { loggedIn } from "../../../redux/Logged";
+import { useDispatch } from "react-redux/es/exports";
 
 const Login = () => {
   const [passwordState, SetPasswordState] = useState(true);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const passwordVisibility = () => {
     SetPasswordState(!passwordState);
   };
 
+  // useEffect(() => {
+  //   alert(logvalue)
+  
+  // }, [logvalue])
+  
+
+ 
+
   async function handleFormSubmit(body) {
     try {
-      const response = await axios.post(
-        "artme-backend.herokuapp.com/login",
-        body
-      );
-      console.log(response);
+      const response = await axios({
+        method: "post",
+        url: "http://artme-backend.herokuapp.com/api/login",
+        data: body,
+        headers: { "Content-Type": "application/json" },
+      });
+      // console.log(response);
+
+      if (response.status === 200) {
+        dispatch(loggedIn());
+        navigate("/Art_me/gallery")
+      }
+
     } catch (error) {
       console.log(error);
-      alert(error.message)
     }
   }
+
+  // function handleFormSubmit(body) {
+  //   fetch("http://artme-backend.herokuapp.com/api/login", {
+  //     method: "post",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body,
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
   return (
     <div className="login_container">
       <Box className="form_box" sx={{ width: { xs: "100%", md: "40%" } }}>
