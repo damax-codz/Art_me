@@ -70,6 +70,9 @@ const Gallery = () => {
     }
   }
 
+
+ 
+
   useEffect(() => {
     getImages();
   }, [mainCategory]);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import Navbar from 'react-bootstrap/Navbar'
 // import Container from 'react-bootstrap/Container'
 // import { Link } from "react-router-dom";
@@ -8,11 +8,14 @@ import "./Nav.scss";
 import { Box, Button, Typography, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavSlide from "./NavSlide";
+import NotLogged from "../modals/NotLogged/NotLogged";
 
 const Nav = () => {
   const [animation, setAnimation] = useState();
   const [showText, setShowText] = useState(false);
+  const [ LoggedModalStatus,setLoggedModalStatus ] = useState(false)
   const navigate = useNavigate();
+  
 
   function startAnim() {
     setAnimation({
@@ -42,6 +45,16 @@ const Nav = () => {
 
   function CloseSideNav() {
     setOpen(false);
+  }
+
+  function handleLoggedModalClose(){
+    setLoggedModalStatus(!LoggedModalStatus)
+  }
+  function handleLoggedModalOpen(){
+    // would first useSelector to check if the person is logged in if not prompt the login modal if the
+    // person is logged in, would navigate to gallery
+    // navigate("/Art_me/gallery") if person is logged in 
+    setLoggedModalStatus(!LoggedModalStatus)
   }
   return (
     <>
@@ -77,44 +90,44 @@ const Nav = () => {
         >
           <ul>
             <li className="nav-container-link" onClick={startAnim}>
-              <a
+              <Box
                 className="link"
                 onClick={() => {
                   setTimeout(() => navigate("/Art_me/home"), 2000);
                 }}
               >
                 Home
-              </a>
+              </Box>
             </li>
             <li className="nav-container-link" onClick={startAnim}>
-              <a
+              <Box
                 className="link"
                 onClick={() => {
                   setTimeout(() => navigate("/Art_me/home"), 2000);
                 }}
               >
-                Artist
-              </a>
+              Find Artist
+              </Box>
             </li>
-            <li className="nav-container-link" onClick={startAnim}>
-              <a
+
+            {/* i can later hide this link to be viewable by only those who are logged in  */}
+            <li className="nav-container-link">
+              <Box
                 className="link"
-                onClick={() => {
-                  setTimeout(() => navigate("/Art_me/gallery"), 2000);
-                }}
+                onClick={handleLoggedModalOpen}
               >
                 Gallery
-              </a>
+              </Box>
             </li>
             <li className="nav-container-link" onClick={startAnim}>
-              <a
+              <Box
                 className="link"
                 onClick={() => {
                   setTimeout(() => navigate("/Art_me/home"), 2000);
                 }}
               >
                 About
-              </a>
+              </Box>
             </li>
           </ul>
         </Box>
@@ -124,7 +137,7 @@ const Nav = () => {
             display: { xs: "none", md: "flex" },
           }}
         >
-          <a className="nav-btn-link" onClick={startAnim}>
+          <Box className="nav-btn-link" onClick={startAnim}>
             <Button
               onClick={() => {
                 setTimeout(() => navigate("/Art_me/login"), 2000);
@@ -134,8 +147,8 @@ const Nav = () => {
             >
               Login
             </Button>
-          </a>
-          <a className="nav-btn-link" onClick={startAnim}>
+          </Box>
+          <Box className="nav-btn-link" onClick={startAnim}>
             <Button
               onClick={() => {
                 setTimeout(() => navigate("/Art_me/signup"), 2000);
@@ -145,7 +158,7 @@ const Nav = () => {
             >
               Signup
             </Button>
-          </a>
+          </Box>
         </Box>
 
         <Box
@@ -161,6 +174,7 @@ const Nav = () => {
         </Box>
       </nav>
       <NavSlide openSideNavValue={open} closeSideNav={CloseSideNav} />
+      <NotLogged  LoggedModalStatus={LoggedModalStatus} handleLoggedModalClose={handleLoggedModalClose} />
     </>
   );
 };

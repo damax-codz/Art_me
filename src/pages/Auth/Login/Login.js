@@ -1,24 +1,38 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import { React,useState } from "react";
+import { React, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.scss";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import GoogleIcon from "./../../../components/images/icons/google.png";
 import Art_lover from "./../../../components/images/Making_art.png";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import axios from "axios"; 
 
 const Login = () => {
-  const [ passwordState,SetPasswordState ] = useState(true)
+  const [passwordState, SetPasswordState] = useState(true);
 
   const navigate = useNavigate();
-  const passwordVisibility=()=>{
-    SetPasswordState(!passwordState)
+  const passwordVisibility = () => {
+    SetPasswordState(!passwordState);
+  };
+
+  async function handleFormSubmit(body) {
+    try {
+      const response = await axios.post(
+        "artme-backend.herokuapp.com/login",
+        body
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+      alert(error.message)
+    }
   }
   return (
     <div className="login_container">
-      <Box className="form_box" sx={{ width:{xs: "100%", md:"40%"}}}>
+      <Box className="form_box" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box className="logo">
           <Box className="logo_circle"></Box>
           <Typography
@@ -49,13 +63,13 @@ const Login = () => {
                 .email("invalid email !"),
               password: Yup.string().required("Password is required !"),
             })}
-            // onSubmit={async (values) => {
-            //   const body = {
-            //     email: values.email,
-            //     password: values.password,
-            //   };
-            //   alert(JSON.stringify(body))
-            // }}
+            onSubmit={async (values) => {
+              const body = {
+                email: values.email,
+                password: values.password,
+              };
+              handleFormSubmit(JSON.stringify(body));
+            }}
           >
             {({
               values,
@@ -89,21 +103,30 @@ const Login = () => {
                 <Box className="form_input_wrapper">
                   <label htmlFor="email">Password</label>
                   <Box className="password_container">
-                      <IconButton onClick={passwordVisibility}className="password_icon">
-                        { passwordState ? <VisibilityOffIcon  /> : <VisibilityIcon  /> }
-                      </IconButton>
-                  <input
-                     type={ passwordState ? "password" : "text" }
-                    id="password"
-                    name="password"
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    className={
-                      errors.password && touched.password ? "info_error" : null
-                    }
-                  ></input>
+                    <IconButton
+                      onClick={passwordVisibility}
+                      className="password_icon"
+                    >
+                      {passwordState ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                    <input
+                      type={passwordState ? "password" : "text"}
+                      id="password"
+                      name="password"
+                      onChange={handleChange}
+                      onSubmit={handleSubmit}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      className={
+                        errors.password && touched.password
+                          ? "info_error"
+                          : null
+                      }
+                    ></input>
                   </Box>
                   {touched.password && errors.password && (
                     <span className="error_message">{errors.password}</span>
@@ -143,7 +166,7 @@ const Login = () => {
           Don't have an account? <Link to="/Art_me/signup">Signup</Link>{" "}
         </Box>
       </Box>
-      <Box className="image_box" sx={{ width:{xs: "0%", md:"60%"}}}>
+      <Box className="image_box" sx={{ width: { xs: "0%", md: "60%" } }}>
         <img src={Art_lover} alt="art_lover" className="art_image" />
       </Box>
     </div>

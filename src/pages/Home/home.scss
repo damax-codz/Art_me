@@ -13,25 +13,35 @@
 
   .page {
     width: 100%;
-    // min-height: 100vh;
     display: flex;
-    // align-items: center;
-    margin-top: 50px;
     background: none;
+    padding: 50px 40px;
     .img-text {
-      width: 60%;
-      font-size: 5em;
-      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      width: 40%;
+      margin-left: 20px;
     }
-    .img-text img {
-      width: 80%;
+    .img-text img { 
+      width: 100%;
+      margin-left: 20px;
+      margin-top: 20px
     }
     .left-text {
-      @include font("Dancing Script", cursive, 900, 80px, rgb(0, 0, 0));
+      @include font('Comfortaa', cursive, 900, 80px, rgb(0, 0, 0));
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
       margin-top: 60px;
+      width: 60%;
+      .left-text-art{
+        @include font('Dancing Script', cursive, 800, 70px, #a52a2a);
+        margin-top: 10px;
+      }
+      .left-text-world{
+        margin-left: 100px;
+        img{
+          width: 60px;
+        }
+      }
     }
   }
   .image-grid-container {
@@ -57,39 +67,44 @@
       }
     }
     .image-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-auto-rows: minmax(300px, auto);
-      width: 70%;
-      margin-top: 50px;
-      gap: 20px;
+      padding: 50px 60px;
+      margin-top: 40px;
+     .grid_container{
+       .grid_image{
+         width: 100%;
+         height: 220px;
+         border-radius: 7px;
+         cursor: pointer;
+       }
+       &:hover{
+        transition: filter 0.5s;
+         filter: brightness(0.6);
+       }
+     }
+     .grid_image_details{
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       margin-top: 10px;
+       .profile{
+         display: flex;
+         align-items: center;
+         .detail_profile{
+           border-radius: 50%;
+           width: 25px;
+           margin-right: 3px
+         }
+         .detail_name{
+          @include font("Quicksand", nans-serif, 500, 15px, rgb(0, 0, 0));
+         }
+         .detail_likes{
+          @include font("Quicksand", nans-serif, 500, 15px, rgb(0, 0, 0));
+        
+         }
+       }
+     }
     }
-    .image-container {
-      .container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-        padding: 0%;
-        .container-img {
-          height: 70%;
-          width: 100%;
-        }
-        .container-text {
-          margin: 0px 10px;
-          .artist-name {
-            @include font("Quicksand", nans-serif, 400, 12px, rgb(0, 0, 0));
-          }
-          .art-description {
-            // margin-top: 10px;
-            @include font("Quicksand", nans-serif, 700, 20px, rgb(0, 0, 0));
-          }
-        }
-      }
-    }
+   
     .long-row {
       grid-row: 1/3;
     }
@@ -165,8 +180,57 @@
   }
 }
 
+@media (max-width:900px) {
+  .nav-container .nav-title .nav-title-text{
+    font-size: 30px;
+  }
+  .main .page .left-text{
+    width: 100%;
+    font-size: 60px;
+  }
+  .main .page{
+    display: flex;
+    flex-direction: column;
+  }
+  .main .page .left-text .left-text-art{
+    font-size: 30px;
+  }
+  .main .page .left-text .left-text-world{
+    margin-left: 80px;
+  }
+  .main .page .img-text{
+    width: 100%;
+    margin-left: 0px;
+    img{
+      margin-left: 0px;
+    }
+  }
+}
+
 @media (max-width:600px) {
   .nav-container .nav-title .nav-title-text{
     font-size: 30px;
   }
+  .main .page .left-text{
+    width: 100%;
+    font-size: 40px;
+  }
+  .main .page{
+    display: flex;
+    flex-direction: column;
+  }
+  .main .page .left-text .left-text-art{
+    font-size: 30px;
+  }
+  .main .page .left-text .left-text-world{
+    margin-left: 40px;
+  }
+  .main .page .img-text{
+    width: 100%;
+    margin-left: 0px;
+    img{
+      margin-left: 0px;
+    }
+  }
 }
+

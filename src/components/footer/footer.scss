@@ -75,17 +75,5 @@
     grid-template-columns: none;
     margin: 100px 34px 10px 34px;
   }
-  .main .page{
-    justify-content: center;
-  }
-  .main .page .img-text{
-    width: 0%;
-    display: none;
-  }
-}
-@media (max-width:500px) {
-    .main .page .left-text{
-        font-size: 60px;
-    }
-}
 
+}

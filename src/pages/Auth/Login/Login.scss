@@ -115,7 +115,7 @@
         border-radius: 50%;
       }
       .nav-title-text {
-        @include font(Satisfy, cursive, 600, 45px, #33343d);
+        @include font(Satisfy, cursive, 600, 34px, #33343d);
         margin-left: 5px;
         cursor: pointer;
       }

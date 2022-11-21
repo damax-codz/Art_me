@@ -9,18 +9,19 @@
 .nav-container {
   display: flex;
   align-items: center;
-  height: 65px;
+  height: 85px;
   justify-content: space-between;
   padding: 10px 34px;
   position: sticky;
   top: 0px;
   background-color: white;
   z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0853);
   .nav-title {
     display: flex;
     align-items: center;
     .nav-title-text {
-      @include font(Satisfy, cursive, 600, 54px, #33343d);
+      @include font(Satisfy, cursive, 600, 34px, #33343d);
       margin-left: 5px;
       cursor: pointer;
     }
@@ -47,6 +48,7 @@
     ul {
       display: flex;
       align-items: center;
+      margin-top: 1rem;
       .nav-container-link {
         list-style: none;
         margin: 0px 20px;
@@ -56,7 +58,7 @@
         .link {
           text-decoration: none;
           transition: 0.5s;
-          @include font(Noto Sans JP, sans-serif, 400, 20px, black);
+          @include font(Noto Sans JP, sans-serif, 600, 15px, rgba(0, 0, 0, 0.583));
           &:hover {
             color: rgba(165, 42, 42, 1);
           }
@@ -73,15 +75,16 @@
           Noto Sans JP,
           sans-serif,
           400,
-          18px,
-          rgba(165, 42, 42, 1)
+          13px,
+          white
         );
-        width: 150px;
-        height: 50px;
-        margin: 0px 10px;
+        width: 120px;
+        height: 40px;
+        margin: 0px 5px;
+        background-color: rgba(165, 42, 42, 0.816);
         &:hover {
-          background-color: rgba(165, 42, 42, 1);
-          color: white;
+          background-color: rgb(255, 255, 255);
+          color: rgba(165, 42, 42, 1);
         }
       }
     }

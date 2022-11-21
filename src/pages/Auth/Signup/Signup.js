@@ -171,7 +171,7 @@ const Signup = () => {
                     />
                   </Box>
                   {errors.confirmpassword && touched.confirmpassword && (
-                    <span className="error">{errors.confirmpassword}</span>
+                    <span className="error_message">{errors.confirmpassword}</span>
                   )}
                 </Box>
 
