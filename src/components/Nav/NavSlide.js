@@ -1,11 +1,15 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
-import { Box, Button, IconButton, Slide, Typography } from "@mui/material";
+import { Box, Button, IconButton, Menu, MenuItem, Slide, Typography } from "@mui/material";
 import "./NavSlide.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
+import { loggedOut } from "../../redux/Logged";
+import { useDispatch } from "react-redux";
+
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
@@ -14,6 +18,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const NavSlide = (props) => {
   const navigate = useNavigate();
   const { logvalue } = useSelector((state) => state.logged);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openMenu = Boolean(anchorEl);
+  const dispatch = useDispatch()
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div>
@@ -52,7 +66,33 @@ const NavSlide = (props) => {
             >
               <Box className="nav-buttons">
                 <Box sx={{ display: "flex", alignItem: "center" }}>
-                  <Box className="profile_pics"></Box>
+                  <Box>
+                    <Box
+                      className="profile_pics"
+                      aria-controls={openMenu ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={openMenu ? "true" : undefined}
+                      onClick={handleClick}
+                    ></Box>
+                    <Menu
+                      id="basic-menu"
+                      className="menu"
+                      anchorEl={anchorEl}
+                      open={openMenu}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        "aria-labelledby": "basic-button",
+                      }}
+                    >
+                      <MenuItem onClick={handleClose} className="menu_item">
+                        Profile
+                      </MenuItem>
+                      <MenuItem onClick={ ()=>{ handleClose(); dispatch(loggedOut()); navigate("/Art_me/home"); }} className="menu_item">
+                        Logout
+                      </MenuItem>
+                    </Menu>
+                  </Box>
+
                   <Button variant="contained" className="log-nav-main-btn">
                     upload
                   </Button>

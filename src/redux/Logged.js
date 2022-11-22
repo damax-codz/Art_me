@@ -11,10 +11,13 @@ const initialState = {
       reducers:{
           loggedIn : (state) => {
               state.logvalue = true
+          },
+          loggedOut : (state) => {
+            state.logvalue = false
           }
       }
   })
 
-  export const { loggedIn } = LoggedSlice.actions
+  export const { loggedIn,loggedOut } = LoggedSlice.actions
 
   export default LoggedSlice.reducer

@@ -11,6 +11,8 @@ import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
 import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
+import { loggedOut } from "../../redux/Logged";
+import { useDispatch } from "react-redux";
 
 const Nav = () => {
   const [animation, setAnimation] = useState();
@@ -18,6 +20,7 @@ const Nav = () => {
   const [LoggedModalStatus, setLoggedModalStatus] = useState(false);
   const navigate = useNavigate();
   const { logvalue } = useSelector((state) => state.logged);
+  const dispatch = useDispatch()
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
@@ -127,7 +130,7 @@ const Nav = () => {
                   </li>
 
                   {/* i can later hide this link to be viewable by only those who are logged in  */}
-                  <li className="nav-container-link">
+                  <li className="nav-container-link" onClick={startAnim}>
                     <Box
                       className="link"
                       onClick={() => {
@@ -168,9 +171,9 @@ const Nav = () => {
 
                 <Box
                   className="profile_pics"
-                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-controls={openMenu ? "basic-menu" : undefined}
                   aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
+                  aria-expanded={openMenu ? "true" : undefined}
                   onClick={handleClick}
                 ></Box>
                 <Menu
@@ -184,8 +187,8 @@ const Nav = () => {
                   }}
                
                 >
-                  <MenuItem onClick={handleClose} className="menu_item">Profile</MenuItem>
-                  <MenuItem onClick={handleClose}  className="menu_item">Logout</MenuItem>
+                  <MenuItem  onClick={handleClose} className="menu_item">Profile</MenuItem>
+                  <MenuItem  onClick={ ()=>{ handleClose(); dispatch(loggedOut()); navigate("/Art_me/home"); }} className="menu_item">Logout</MenuItem>
                 </Menu>
               </Box>
 

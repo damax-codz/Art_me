@@ -40,6 +40,8 @@ const Gallery = () => {
 
   const [unsplashImages, setUnsplashImages] = useState([]);
 
+  
+
   const handleChangeSort = (event) => {
     setSort(event.target.value);
   };
