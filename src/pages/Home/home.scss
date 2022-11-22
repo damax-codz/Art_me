@@ -26,11 +26,11 @@
       margin-top: 20px
     }
     .left-text {
-      @include font('Comfortaa', cursive, 900, 80px, rgb(0, 0, 0));
+      @include font('Comfortaa', cursive, 1000, 90px, rgb(0, 0, 0));
       display: flex;
       flex-direction: column;
       align-items: left;
-      margin-top: 60px;
+      margin-top: 50px;
       width: 60%;
       .left-text-art{
         @include font('Dancing Script', cursive, 800, 70px, #a52a2a);
@@ -163,23 +163,7 @@
     opacity: 1;
   }
 }
-
-@media (max-width: 900px) {
-  #COLLECTION {
-    font-size: 6em;
-  }
-  .video {
-    display: none;
-  }
-  .main .image-grid-container .image-grid {
-    display: flex;
-    flex-direction: column;
-  }
-  .main .image-container {
-    height: 400px;
-  }
-}
-
+ 
 @media (max-width:900px) {
   .nav-container .nav-title .nav-title-text{
     font-size: 30px;
@@ -223,7 +207,7 @@
     font-size: 30px;
   }
   .main .page .left-text .left-text-world{
-    margin-left: 40px;
+    margin-left: 15px;
   }
   .main .page .img-text{
     width: 100%;
@@ -231,6 +215,9 @@
     img{
       margin-left: 0px;
     }
+  }
+  .main .image-grid-container .disappear-text h2{
+    font-size: 25px;
   }
 }
 

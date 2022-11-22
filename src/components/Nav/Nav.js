@@ -5,15 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
-import {
-  Box,
-  Button,
-  Typography,
-  IconButton,
-  FormControl,
-  Input,
-  InputAdornment,
-} from "@mui/material";
+import { Box, Button, Typography, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
@@ -26,6 +18,15 @@ const Nav = () => {
   const [LoggedModalStatus, setLoggedModalStatus] = useState(false);
   const navigate = useNavigate();
   const { logvalue } = useSelector((state) => state.logged);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openMenu = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   function startAnim() {
     setAnimation({
@@ -163,19 +164,32 @@ const Nav = () => {
                 </IconButton>
                 <input class="input-field" type="text" placeHolder="Search" />
               </Box>
+              <Box>
 
-              {/* <Box className="profile"> */}
-              <Box className="profile_pics"></Box>
-              {/* <p className="profile_name">Lorem Ipsum</p> */}
-              {/* </Box> */}
+                <Box
+                  className="profile_pics"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                ></Box>
+                <Menu
+                  id="basic-menu"
+                  className="menu"
+                  anchorEl={anchorEl}
+                  open={openMenu}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+               
+                >
+                  <MenuItem onClick={handleClose} className="menu_item">Profile</MenuItem>
+                  <MenuItem onClick={handleClose}  className="menu_item">Logout</MenuItem>
+                </Menu>
+              </Box>
 
-              <Button
-                // onClick={() => {
-                //   setTimeout(() => navigate("/Art_me/login"), 2000);
-                // }}
-                variant="contained"
-                className="log-nav-main-btn"
-              >
+              <Button variant="contained" className="log-nav-main-btn">
                 upload
               </Button>
             </Box>

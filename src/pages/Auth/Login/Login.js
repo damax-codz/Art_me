@@ -32,7 +32,7 @@ const Login = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "http://artme-backend.herokuapp.com/api/login",
+        url: "https://artme-backend.herokuapp.com/api/login",
         data: body,
         headers: { "Content-Type": "application/json" },
       });
