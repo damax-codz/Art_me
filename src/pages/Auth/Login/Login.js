@@ -11,6 +11,8 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 import { loggedIn } from "../../../redux/Logged";
 import { useDispatch } from "react-redux/es/exports";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [passwordState, SetPasswordState] = useState(true);
@@ -19,14 +21,14 @@ const Login = () => {
   const passwordVisibility = () => {
     SetPasswordState(!passwordState);
   };
+  // const LogSuccess = () => {
+  //   return toast.success("Login Successful");
+  // };
+  // const LogFail = () => {
+  //   return toast.error("Login Successful");
+  // };
 
-  // useEffect(() => {
-  //   alert(logvalue)
-  
-  // }, [logvalue])
-  
 
- 
 
   async function handleFormSubmit(body) {
     try {
@@ -36,34 +38,19 @@ const Login = () => {
         data: body,
         headers: { "Content-Type": "application/json" },
       });
-      // console.log(response);
 
       if (response.status === 200) {
         dispatch(loggedIn());
-        navigate("/Art_me/gallery")
+        navigate("/Art_me/gallery");
+        // LogSuccess();
+      } else {
+        // LogFail();
       }
-
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
-  // function handleFormSubmit(body) {
-  //   fetch("http://artme-backend.herokuapp.com/api/login", {
-  //     method: "post",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body,
-  //   })
-  //     .then((response) => {
-  //       console.log(response);
-
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
 
   return (
     <div className="login_container">
@@ -84,7 +71,7 @@ const Login = () => {
         <Box className="form">
           <Typography className="welcome_back">Welcome back !</Typography>
           <Typography className="welcome_back_text">
-            Lorem ipsum dolor sit amet consectetur adipisicing.
+            Enter your details to get signed in to your account
           </Typography>
 
           <Formik
@@ -204,6 +191,7 @@ const Login = () => {
       <Box className="image_box" sx={{ width: { xs: "0%", md: "60%" } }}>
         <img src={Art_lover} alt="art_lover" className="art_image" />
       </Box>
+      <ToastContainer />
     </div>
   );
 };

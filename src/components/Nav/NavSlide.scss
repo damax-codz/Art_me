@@ -11,6 +11,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .mainpage-logo{
+    display: flex;
+    align-items: center;
+    .anim-circle{
+        width: 20px;
+        height: 20px;
+        background-color: rgba(165, 42, 42, 1);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .nav-title-text{
+      @include font(Satisfy, cursive, 600, 34px, #33343d);
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
 
   .nav-buttons {
     align-items: center;
@@ -97,26 +115,22 @@
   .links {
     text-decoration: none;
     margin: 15px 30px;
-    @include font(Noto Sans JP, sans-serif, 400, 20px, black);
+    @include font(Noto Sans JP, sans-serif, 400, 17px, black);
     &:hover {
       color: rgba(165, 42, 42, 1);
     }
   }
   .btns {
+    margin-left: 10px;
     .nav-slide-btn-link {
       text-decoration: none;
       .nav-btn {
-        border: 1px solid rgba(165, 42, 42, 1);
-        @include font(
-          Noto Sans JP,
-          sans-serif,
-          400,
-          18px,
-          rgba(165, 42, 42, 1)
-        );
-        margin: 0px 10px;
-        width: 150px;
-        height: 50px;
+        border: 1px solid rgba(165, 42, 42, 0.8);
+        @include font(Noto Sans JP, sans-serif, 400, 13px, rgba(165, 42, 42, 0.8));
+        margin: 0px 5px;
+        width: 100px;
+        height: 40px;
+        text-transform: none;
       }
       .signup-btn {
         background-color: rgba(165, 42, 42, 1);

@@ -63,7 +63,7 @@ const Signup = () => {
         <Box className="form">
           <Typography className="welcome_back">Signup To Artme</Typography>
           <Typography className="welcome_back_text">
-            Lorem ipsum dolor sit amet consectetur adipisicing.
+            Create a new account
           </Typography>
 
           <Formik

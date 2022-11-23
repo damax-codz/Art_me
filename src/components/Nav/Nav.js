@@ -165,7 +165,7 @@ const Nav = () => {
                 <IconButton className="icon">
                   <SearchIcon />
                 </IconButton>
-                <input class="input-field" type="text" placeHolder="Search" />
+                <input className="input-field" type="text" placeholder="Search" />
               </Box>
               <Box>
 
