@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 import { loggedOut } from "../../redux/Logged";
 import { useDispatch } from "react-redux";
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+
 
 
 
@@ -73,7 +75,9 @@ const NavSlide = (props) => {
                       aria-haspopup="true"
                       aria-expanded={openMenu ? "true" : undefined}
                       onClick={handleClick}
-                    ></Box>
+                    >
+                       <PersonOutlineIcon sx={{fontSize:"25px"}} />
+                    </Box>
                     <Menu
                       id="basic-menu"
                       className="menu"

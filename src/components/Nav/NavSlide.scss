@@ -88,9 +88,12 @@
       border-radius: 50%;
       width: 40px;
       height: 40px;
-      background-color: rgb(152, 129, 129);
+      background-color: rgba(184, 171, 171, 0.729);
       margin-right: 10px;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     // }
     .log-nav-main-btn {
