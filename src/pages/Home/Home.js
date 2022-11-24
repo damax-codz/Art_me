@@ -10,12 +10,15 @@ import MyGif from "../../components/images/icons/dizzy.gif";
 import axios from "axios";
 import { useEffect } from "react";
 import NotLogged from "../../components/modals/NotLogged/NotLogged";
-import MetaTags from "react-meta-tags"
+import MetaTags from "react-meta-tags";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [unsplashImages, setUnsplashImages] = useState([]);
-  const [ LoggedModalStatus,setLoggedModalStatus ] = useState(false)
-
+  const [LoggedModalStatus, setLoggedModalStatus] = useState(false);
+  const { logvalue } = useSelector((state) => state.logged);
+  const navigate = useNavigate();
   async function getImages() {
     try {
       const response = await axios.get(
@@ -28,15 +31,18 @@ const Home = () => {
     }
   }
 
-  
-  function handleLoggedModalClose(){
-    setLoggedModalStatus(!LoggedModalStatus)
+  function handleLoggedModalClose() {
+    setLoggedModalStatus(!LoggedModalStatus);
   }
-  function handleLoggedModalOpen(){
+  function handleLoggedModalOpen() {
     // would first useSelector to check if the person is logged in if not prompt the login modal if the
     // person is logged in, would navigate to gallery
-    // navigate("/Art_me/gallery") if person is logged in 
-    setLoggedModalStatus(!LoggedModalStatus)
+    // navigate("/Art_me/gallery") if person is logged in
+    if (logvalue) {
+      navigate("/Art_me/gallery");
+    } else {
+      setLoggedModalStatus(!LoggedModalStatus);
+    }
   }
 
   useEffect(() => {
@@ -44,12 +50,9 @@ const Home = () => {
   }, []);
   return (
     <>
-     <MetaTags>
+      <MetaTags>
         <title>Artme</title>
-        <meta
-          name='description'
-          content='Home page of Artme. '
-        />
+        <meta name="description" content="Home page of Artme. " />
       </MetaTags>
       <Nav />
 
@@ -66,7 +69,7 @@ const Home = () => {
             </span>
           </div>
           <div className="img-text">
-            <img src={MyGif}  alt="gif"/>
+            <img src={MyGif} alt="gif" />
           </div>
         </div>
 
@@ -116,7 +119,7 @@ const Home = () => {
                             className="detail_love"
                             component="img"
                             src={LoveIcon}
-                            sx={{width:"15px",marginRight:"3px"}}
+                            sx={{ width: "15px", marginRight: "3px" }}
                             alt="like"
                           />
                           {item.likes}
@@ -129,7 +132,11 @@ const Home = () => {
           </Grid>
 
           <Box className="more_collections_wrapper">
-            <Button className="more_collections" variant="contained" onClick={handleLoggedModalOpen}>
+            <Button
+              className="more_collections"
+              variant="contained"
+              onClick={handleLoggedModalOpen}
+            >
               Discover more collections{" "}
               <CallMadeIcon sx={{ fontSize: 15, marginLeft: "3px" }} />
             </Button>
@@ -137,11 +144,13 @@ const Home = () => {
         </div>
 
         <Footer />
-        <NotLogged LoggedModalStatus={LoggedModalStatus} handleLoggedModalClose={handleLoggedModalClose} />
+        <NotLogged
+          LoggedModalStatus={LoggedModalStatus}
+          handleLoggedModalClose={handleLoggedModalClose}
+        />
       </div>
     </>
   );
 };
 
 export default Home;
-
