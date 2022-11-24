@@ -159,7 +159,7 @@ const NavSlide = (props) => {
               </Link>
               <hr />
 
-              <Box className="btns">
+              <Box className="btns" sx={{display : logvalue ? "none" : "flex"}}>
                 <Link
                   to="/Art_me/login"
                   className="nav-slide-btn-link"
