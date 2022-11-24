@@ -25,8 +25,6 @@ import Nav from "../../components/Nav/Nav";
 import LoveIcon from "../../components/images/icons/heart.png";
 import Footer from "../../components/footer/Footer";
 import MetaTags from "react-meta-tags";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Gallery = () => {
   const [sort, setSort] = useState("");
@@ -320,11 +318,11 @@ const Gallery = () => {
                         key={index}
                         className="grid_container"
                       >
-                        <LazyLoadImage
+                        <Box
+                          component="img"
                           className="grid_image"
                           src={item.urls.full}
                           alt="art-images"
-                          effect="blur"
                         />
 
                         <Box className="grid_image_details">

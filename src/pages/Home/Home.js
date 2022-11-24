@@ -13,8 +13,7 @@ import NotLogged from "../../components/modals/NotLogged/NotLogged";
 import MetaTags from "react-meta-tags";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+
 
 const Home = () => {
   const [unsplashImages, setUnsplashImages] = useState([]);
@@ -96,20 +95,20 @@ const Home = () => {
                       key={index}
                       className="grid_container"
                     >
-                      <LazyLoadImage
+                      <Box
+                        component="img"
                         className="grid_image"
                         src={item.urls.full}
                         alt="art-images"
-                        effect="blur"
                       />
 
                       <Box className="grid_image_details">
                         <Box className="profile">
                           <Box
                             className="detail_profile"
+                            component="img"
                             src={item.user.profile_image.small}
                             alt="profile"
-                            component="img"
                           />
                           <Typography className="detail_name">
                             {item.user.first_name} {item.user.last_name}
