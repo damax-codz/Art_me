@@ -13,6 +13,7 @@ import { loggedIn } from "../../../redux/Logged";
 import { useDispatch } from "react-redux/es/exports";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MetaTags from "react-meta-tags"
 
 const Login = () => {
   const [passwordState, SetPasswordState] = useState(true);
@@ -46,6 +47,15 @@ const Login = () => {
   }
 
   return (
+    <>
+    <MetaTags>
+        <title>Login | Artme</title>
+        <meta
+          name='description'
+          content='Check out some of today’s popular collections. '
+        />
+      </MetaTags>
+   
     <div className="login_container">
       <Box className="form_box" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box className="logo">
@@ -186,6 +196,7 @@ const Login = () => {
       </Box>
       <ToastContainer />
     </div>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import GoogleIcon from "./../../../components/images/icons/google.png";
 import Art_lover from "./../../../components/images/focus.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import MetaTags from "react-meta-tags";
 // import axios from "axios";
 // import { loggedIn } from "../../../redux/Logged";
 // import { useDispatch } from "react-redux/es/exports";
@@ -45,6 +46,15 @@ const Signup = () => {
 
 
   return (
+    <>
+    <MetaTags>
+        <title>Signup | Artme</title>
+        <meta
+          name='description'
+          content='Check out some of today’s popular collections. '
+        />
+      </MetaTags>
+   
     <div className="login_container">
       <Box className="form_box"  sx={{ width:{xs: "100%", md:"40%"}}}> 
         <Box className="logo">
@@ -240,6 +250,7 @@ const Signup = () => {
         <img src={Art_lover} alt="art_lover" className="art_image" />
       </Box>
     </div>
+    </>
   );
 };
 

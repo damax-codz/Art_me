@@ -1,6 +1,5 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
-
 import "./home.scss";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import Footer from "../../components/footer/Footer";
@@ -11,6 +10,7 @@ import MyGif from "../../components/images/icons/dizzy.gif";
 import axios from "axios";
 import { useEffect } from "react";
 import NotLogged from "../../components/modals/NotLogged/NotLogged";
+import MetaTags from "react-meta-tags"
 
 const Home = () => {
   const [unsplashImages, setUnsplashImages] = useState([]);
@@ -44,6 +44,13 @@ const Home = () => {
   }, []);
   return (
     <>
+     <MetaTags>
+        <title>Artme</title>
+        <meta
+          name='description'
+          content='Home page of Artme. '
+        />
+      </MetaTags>
       <Nav />
 
       <div className="main">

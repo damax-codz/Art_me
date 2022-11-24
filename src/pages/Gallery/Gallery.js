@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import LoveIcon from "../../components/images/icons/heart.png";
 import Footer from "../../components/footer/Footer";
+import MetaTags from "react-meta-tags";
 
 const Gallery = () => {
   const [sort, setSort] = useState("");
@@ -39,8 +40,6 @@ const Gallery = () => {
   const [mainCategory, setMainCategory] = useState("art");
 
   const [unsplashImages, setUnsplashImages] = useState([]);
-
-  
 
   const handleChangeSort = (event) => {
     setSort(event.target.value);
@@ -74,19 +73,25 @@ const Gallery = () => {
     }
   }
 
-
- 
-
   useEffect(() => {
     getImages();
   }, [mainCategory]);
 
   return (
     <>
+      <MetaTags>
+        <title>Gallery | Artme</title>
+        <meta
+          name="description"
+          content="Check out some of today’s popular collections. "
+        />
+      </MetaTags>
       <Nav />
       <Box className="gallery_page">
         <Typography className="top_header">{galleryCategory}</Typography>
-        <Typography className="top_header_sub">Check out some of today’s popular collections</Typography>
+        <Typography className="top_header_sub">
+          Check out some of today’s popular collections
+        </Typography>
 
         <Box className="top_nav">
           <Box className="filters" onClick={changeFilterStatus}>
@@ -143,7 +148,10 @@ const Gallery = () => {
           <Box
             className="gallery_side_nav"
             sx={{
-              width:{ xs :  openFilters ? "100%" : "0%" , md: openFilters ? "30%" : "0%"  },
+              width: {
+                xs: openFilters ? "100%" : "0%",
+                md: openFilters ? "30%" : "0%",
+              },
               display: openFilters ? "flex" : "none",
             }}
           >
@@ -292,55 +300,60 @@ const Gallery = () => {
 
           <Box
             className="gallery_image_display"
-            sx={{  width: {xs: openFilters ? "0%" : "100%", md: openFilters ? "70%" : "100%" } }}
+            sx={{
+              width: {
+                xs: openFilters ? "0%" : "100%",
+                md: openFilters ? "70%" : "100%",
+              },
+            }}
           >
             <Grid container className="image-grid" spacing={4}>
-            {unsplashImages
-              ? unsplashImages.map((item, index) => {
-                  return (
-                    <Grid
-                      item
-                      md={openFilters ? 4 : 3}
-                      xs={ 12 }
-                      key={index}
-                      className="grid_container"
-                    >
-                      <Box
-                        component="img"
-                        className="grid_image"
-                        src={item.urls.full}
-                        alt="art-images"
-                      />
+              {unsplashImages
+                ? unsplashImages.map((item, index) => {
+                    return (
+                      <Grid
+                        item
+                        md={openFilters ? 4 : 3}
+                        xs={12}
+                        key={index}
+                        className="grid_container"
+                      >
+                        <Box
+                          component="img"
+                          className="grid_image"
+                          src={item.urls.full}
+                          alt="art-images"
+                        />
 
-                      <Box className="grid_image_details">
-                        <Box className="profile">
-                          <Box
-                            className="detail_profile"
-                            component="img"
-                            src={item.user.profile_image.small}
-                            alt="profile"
-                          />
-                          <Typography className="detail_name">
-                            {item.user.first_name} {item.user.last_name}
-                          </Typography>
+                        <Box className="grid_image_details">
+                          <Box className="profile">
+                            <Box
+                              className="detail_profile"
+                              component="img"
+                              src={item.user.profile_image.small}
+                              alt="profile"
+                            />
+                            <Typography className="detail_name">
+                              {item.user.first_name} {item.user.last_name}
+                            </Typography>
+                          </Box>
+                          <Box className="detail_likes">
+                            {" "}
+                            <Box
+                              className="detail_love"
+                              component="img"
+                              src={LoveIcon}
+                              sx={{ width: "15px", marginRight: "3px" }}
+                              alt="like"
+                            />
+                            {item.likes}
+                          </Box>
                         </Box>
-                        <Box className="detail_likes">
-                          {" "}
-                          <Box
-                            className="detail_love"
-                            component="img"
-                            src={LoveIcon}
-                            sx={{width:"15px",marginRight:"3px"}}
-                            alt="like"
-                          />
-                          {item.likes}
-                        </Box>
-                      </Box>
-                    </Grid>
-                  );
-                })
-              : null}
-          </Grid>
+                      </Grid>
+                    );
+                  })
+                : null}
+            </Grid>
           </Box>
         </Box>
       </Box>
