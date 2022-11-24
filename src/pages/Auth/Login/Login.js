@@ -21,13 +21,6 @@ const Login = () => {
   const passwordVisibility = () => {
     SetPasswordState(!passwordState);
   };
-  // const LogSuccess = () => {
-  //   return toast.success("Login Successful");
-  // };
-  // const LogFail = () => {
-  //   return toast.error("Login Successful");
-  // };
-
 
 
   async function handleFormSubmit(body) {
@@ -40,17 +33,17 @@ const Login = () => {
       });
 
       if (response.status === 200) {
+        toast.success("Login Successful");
         dispatch(loggedIn());
         navigate("/Art_me/gallery");
-        // LogSuccess();
-      } else {
-        // LogFail();
-      }
+      } 
     } catch (error) {
-      // console.log(error);
+      if(error){
+        toast.error("Login Unsuccessful");
+      }
+      console.log(error);
     }
   }
-
 
   return (
     <div className="login_container">
