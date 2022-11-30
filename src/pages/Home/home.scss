@@ -95,7 +95,7 @@
            margin-right: 3px
          }
          .detail_name{
-          @include font("Quicksand", nans-serif, 500, 15px, rgb(0, 0, 0));
+          @include font("C", nans-serif, 500, 15px, rgb(0, 0, 0));
          }
          .detail_likes{
           @include font("Quicksand", nans-serif, 500, 15px, rgb(0, 0, 0));

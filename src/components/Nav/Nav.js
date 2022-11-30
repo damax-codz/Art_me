@@ -5,15 +5,22 @@ import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
-import { Box, Button, Typography, IconButton, Menu, MenuItem } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+  Avatar,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
-import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 import { loggedOut } from "../../redux/Logged";
-import { useDispatch } from "react-redux";
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { useDispatch,useSelector } from "react-redux";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const Nav = () => {
   const [animation, setAnimation] = useState();
@@ -21,8 +28,9 @@ const Nav = () => {
   const [LoggedModalStatus, setLoggedModalStatus] = useState(false);
   const navigate = useNavigate();
   const { logvalue } = useSelector((state) => state.logged);
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const { userdetails } = useSelector((state) => state.user);
+  const [profile] = useState(userdetails[0].profileImg);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -166,19 +174,34 @@ const Nav = () => {
                 <IconButton className="icon">
                   <SearchIcon />
                 </IconButton>
-                <input className="input-field" type="text" placeholder="Search" />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="Search"
+                />
               </Box>
               <Box>
-
-                <Box
-                  className="profile_pics"
+              { profile ? ( <Avatar
                   aria-controls={openMenu ? "basic-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={openMenu ? "true" : undefined}
                   onClick={handleClick}
+                  sx={{ cursor: "pointer" }}
+                  src={profile}
                 >
-                  <PersonOutlineIcon sx={{fontSize:"30px"}} />
-                </Box>
+                 
+                </Avatar> ) : ( <Avatar
+                  aria-controls={openMenu ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openMenu ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{ cursor: "pointer" }}
+                >
+                  <PersonOutlineIcon
+                    sx={{ fontSize: "30px", color: "black" }}
+                  />
+                </Avatar> )  
+}
                 <Menu
                   id="basic-menu"
                   className="menu"
@@ -188,10 +211,26 @@ const Nav = () => {
                   MenuListProps={{
                     "aria-labelledby": "basic-button",
                   }}
-               
                 >
-                  <MenuItem  onClick={handleClose} className="menu_item">Profile</MenuItem>
-                  <MenuItem  onClick={ ()=>{ handleClose(); dispatch(loggedOut()); navigate("/Art_me/home"); }} className="menu_item">Logout</MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      navigate("/Art_me/profile");
+                      handleClose();
+                    }}
+                    className="menu_item"
+                  >
+                    Profile
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      handleClose();
+                      dispatch(loggedOut());
+                      navigate("/Art_me/home");
+                    }}
+                    className="menu_item"
+                  >
+                    Logout
+                  </MenuItem>
                 </Menu>
               </Box>
 

@@ -110,6 +110,7 @@
       }
     }
   }
+  
 }
 .nav-slide-links {
   margin: 20px 0px;
@@ -139,6 +140,49 @@
         background-color: rgba(165, 42, 42, 1);
         color: white;
       }
+    }
+  }
+}
+
+.profile_left_navslide {
+  // width: 20%;
+  height: 89vh;
+  padding-left: 34px;
+  padding-top: 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.0801);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
+  flex-direction: column;
+
+  .left_nav_title {
+    @include font(Quicksand, sans-serif, 600, 14px, rgba(0, 0, 0, 0.441));
+    margin: 15px 0px;
+  }
+  .left_nav_link {
+    @include font(Noto Sans JP, sans-serif, 300, 12px, rgb(0, 0, 0));
+    margin: 10px 0px;
+  }
+}
+
+.profile_right_navslide {
+  // width: 20%;
+  height: 85vh;
+  padding-left: 34px;
+  padding-top: 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.0801);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
+
+  flex-direction: column;
+  .right_nav_title {
+    @include font(Quicksand, sans-serif, 600, 14px, rgba(0, 0, 0, 0.441));
+    margin: 15px 0px;
+  }
+  .page_following {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    .page_name {
+      @include font(Noto Sans JP, sans-serif, 300, 12px, rgb(0, 0, 0));
+      margin: 0px 10px;
     }
   }
 }

@@ -69,7 +69,7 @@ const Gallery = () => {
       setUnsplashImages(response.data.results);
       // console.log(response.data.results);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   }
 

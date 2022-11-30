@@ -9,13 +9,15 @@ import Art_lover from "./../../../components/images/focus.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import MetaTags from "react-meta-tags";
-// import axios from "axios";
-// import { loggedIn } from "../../../redux/Logged";
-// import { useDispatch } from "react-redux/es/exports";
+import axios from "axios";
+import { loggedIn } from "../../../redux/Logged";
+import { useDispatch } from "react-redux/es/exports";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [passwordState, SetPasswordState] = useState(true);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const passwordVisibility = () => {
     SetPasswordState(!passwordState);
@@ -24,25 +26,29 @@ const Signup = () => {
 
   // WAITING FOR CHANGE IN BACKEND
 
-  // async function handleFormSubmit(body) {
-  //   try {
-  //     const response = await axios({
-  //       method: "post",
-  //       url: "http://artme-backend.herokuapp.com/api/signup",
-  //       data: body,
-  //       headers: { "Content-Type": "application/json" },
-  //     });
-  //     // console.log(response);
+  async function handleFormSubmit(body) {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://artme-backend.herokuapp.com/api/signup",
+        data: body,
+        headers: { "Content-Type": "application/json" },
+      });
+      // console.log(response);
 
-  //     if (response.status === 200) {
-  //       dispatch(loggedIn());
-  //       navigate("/Art_me/gallery")
-  //     }
+      if (response.status === 200) {
+        toast.success("Signup Successful");
+        dispatch(loggedIn());
+        navigate("/Art_me/gallery")
+      }
 
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+    } catch (error) {
+      if(error){
+        toast.error("Signup Unsuccessful");
+      }
+      // console.log(error);
+    }
+  }
 
 
   return (
@@ -88,18 +94,18 @@ const Signup = () => {
               email: Yup.string()
                 .required("Email is required !")
                 .email("invalid email !"),
-              password: Yup.string().required("Password is required !"),
+              password: Yup.string().required("Password is required !").min(8,"Password has to be 8 or more characters"),
               confirmpassword: Yup.string()
                 .required("you need to renter your password")
                 .oneOf([Yup.ref("password"), null], "Passwords must match"),
             })}
             onSubmit={async (values) => {
               const body = {
-                fullname: values.fullname,
+                full_name: values.fullname,
                 email: values.email,
                 password: values.password,
               };
-              // handleFormSubmit(JSON.stringify(body));
+              handleFormSubmit(JSON.stringify(body)); 
             }}
           >
             {({
@@ -250,6 +256,7 @@ const Signup = () => {
         <img src={Art_lover} alt="art_lover" className="art_image" />
       </Box>
     </div>
+    <ToastContainer />
     </>
   );
 };

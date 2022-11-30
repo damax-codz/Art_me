@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import loggedReducer from "./Logged"
+import userReducer from "./UserDetail"
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
@@ -8,14 +9,16 @@ const persistConfig = {
   key: 'root',
   storage,
 }
+const rootReducer = combineReducers({ 
+  logged: loggedReducer,
+  user: userReducer
+})
 
-const persistedReducer = persistReducer(persistConfig, loggedReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: {
-      logged : persistedReducer,
-      middleware: [thunk]
-  },
+  reducer : persistedReducer,
+  middleware: [thunk]
 })
 
 export const persistor = persistStore(store)

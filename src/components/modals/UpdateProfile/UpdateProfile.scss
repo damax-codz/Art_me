@@ -1,0 +1,137 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+
+.update_box {
+  min-width: 400px;
+  padding: 5px;
+  .update_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .top_text {
+      @include font("Quicksand", nans-serif, 600, 12px, rgb(0, 0, 0));
+    }
+  }
+  .upload_images {
+    margin: 10px 24px;
+    display: flex;
+    .profile {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      cursor: pointer;
+      // .lkjDVC{
+      //   border: none;
+      //   min-width: 0px;
+      //   position: absolute;
+      //   // opacity: 0;  
+      // }
+      flex-direction: column;
+      label{
+        border: none;
+        min-width: 110px;
+        max-width: 110px;
+        svg{
+          display: none;
+        }
+        div{
+          text-align: center;
+          span{
+            font-size: 10px;
+          }
+          span:nth-child(2){
+            display: none;
+          }
+        }
+      }
+    }
+    .cover {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-direction: column;
+      label{
+        border: none;
+        min-width: 110px;
+        max-width: 110px;
+        svg{
+          display: none;
+        }
+        div{
+          text-align: center;
+          span{
+            font-size: 10px;
+          }
+          span:nth-child(2){
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  form {
+    margin: 25px 24px;
+    .form_input_wrapper {
+      display: flex;
+      flex-direction: column;
+      label {
+        @include font("Quicksand", nans-serif, 600, 14px, rgb(0, 0, 0));
+        margin-top: 10px;
+      }
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        height: 35px;
+        padding: 0px 10px;
+        border-radius: 3px;
+        &:focus {
+          outline: none;
+          border: 1px solid black;
+        }
+      }
+      #bio {
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        height: 60px;
+        padding: 0px 10px;
+        border-radius: 2px;
+        &:focus {
+          outline: none;
+          border: 1px solid black;
+        }
+      }
+    }
+    .nav-buttons{
+      display: flex;
+      margin-top: 20px;
+      .nav-main-btn{
+        border: 1px solid #a52a2ade;
+        @include font(Quicksand, sans-serif, 400, 13px, rgba(165, 42, 42, 1));
+        width: 100px;
+        height: 40px;
+        // margin: 0px 5px;
+        text-transform: none;
+        border-radius: 2px;
+      }
+      .save{
+        @extend .nav-main-btn;
+        background-color: rgba(165, 42, 42, 1);
+        margin-left: 5px;
+        color: white;
+      }
+    }
+  }
+}

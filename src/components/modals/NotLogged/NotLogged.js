@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 const NotLogged = (props) => {
     const navigate = useNavigate()
   return (
+
+    
     <div>
       <Dialog
         open={props.LoggedModalStatus}
