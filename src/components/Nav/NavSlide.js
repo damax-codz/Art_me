@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
 import {
@@ -26,7 +26,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const NavSlide = (props) => {
   const navigate = useNavigate();
   const { logvalue } = useSelector((state) => state.logged);
-
+  const { userdetails } = useSelector((state) => state.user);
+  const [profile] = useState(userdetails[0].profileImg);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
   const dispatch = useDispatch();
@@ -75,17 +76,27 @@ const NavSlide = (props) => {
               <Box className="nav-buttons">
                 <Box sx={{ display: "flex", alignItem: "center" }}>
                   <Box>
-                    <Avatar
-                      aria-controls={openMenu ? "basic-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={openMenu ? "true" : undefined}
-                      onClick={handleClick}
-                      sx={{ cursor: "pointer" }}
-                    >
-                      <PersonOutlineIcon
-                        sx={{ fontSize: "30px", color: "black" }}
-                      />
-                    </Avatar>
+                  { profile ? ( <Avatar
+                  aria-controls={openMenu ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openMenu ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{ cursor: "pointer" }}
+                  src={profile}
+                >
+                 
+                </Avatar> ) : ( <Avatar
+                  aria-controls={openMenu ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openMenu ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{ cursor: "pointer" }}
+                >
+                  <PersonOutlineIcon
+                    sx={{ fontSize: "30px", color: "black" }}
+                  />
+                </Avatar> )  
+}
                     <Menu
                       id="basic-menu"
                       className="menu"
