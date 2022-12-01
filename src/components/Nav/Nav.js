@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Navbar from 'react-bootstrap/Navbar'
 // import Container from 'react-bootstrap/Container'
@@ -39,6 +39,7 @@ const Nav = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
 
   function startAnim() {
     setAnimation({
@@ -181,7 +182,7 @@ const Nav = () => {
                 />
               </Box>
               <Box>
-              { profile ? ( <Avatar
+              {/* { profile ? ( <Avatar
                   aria-controls={openMenu ? "basic-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={openMenu ? "true" : undefined}
@@ -190,7 +191,8 @@ const Nav = () => {
                   src={profile}
                 >
                  
-                </Avatar> ) : ( <Avatar
+                </Avatar> ) : */}
+                  <Avatar
                   aria-controls={openMenu ? "basic-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={openMenu ? "true" : undefined}
@@ -200,8 +202,7 @@ const Nav = () => {
                   <PersonOutlineIcon
                     sx={{ fontSize: "30px", color: "black" }}
                   />
-                </Avatar> )  
-}
+                </Avatar> 
                 <Menu
                   id="basic-menu"
                   className="menu"
