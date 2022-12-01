@@ -26,9 +26,25 @@ const Profile = () => {
   const [value, setValue] = useState("one");
   const [updateprofile, setUpdateprofile] = useState(false);
   const { userdetails } = useSelector((state) => state.user);
-  const [profile] = useState(userdetails[0].profileImg);
-  const [bio] = useState(userdetails[0].bio);
-  const [cover] = useState(userdetails[0].coverImg);
+  const [profile,setProfile] = useState(userdetails[0].profileImg);
+  const [bio,setBio] = useState(userdetails[0].bio);
+  const [cover,setCover] = useState(userdetails[0].coverImg);
+
+  if (userdetails[0].profileImg !== null) {
+    setProfile(userdetails[0].profileImg)
+  }
+
+  if (userdetails[0].bio !== null) {
+    setBio(userdetails[0].bio)
+  }
+
+  if (userdetails[0].coverImg !== null) {
+    setCover(userdetails[0].coverImg)
+  }
+
+
+
+
 
   const handleChangeValue = (event, newValue) => {
     setValue(newValue);

@@ -19,7 +19,7 @@ import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
 import SearchIcon from "@mui/icons-material/Search";
 import { loggedOut } from "../../redux/Logged";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const Nav = () => {
@@ -30,16 +30,26 @@ const Nav = () => {
   const { logvalue } = useSelector((state) => state.logged);
   const dispatch = useDispatch();
   const { userdetails } = useSelector((state) => state.user);
-  // const [profile] = useState(userdetails[0].profileImg);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
+  const [ profile,setProfile ] = useState()
+
+  // const [profile] = useState(userdetails[0].profileImg);
+
+  if (userdetails[0].profileImg !== null) {
+    setProfile(userdetails[0].profileImg)
+  }
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  
+
+  useEffect(() => {
+    console.log(userdetails);
+  }, []);
 
   function startAnim() {
     setAnimation({
@@ -182,27 +192,28 @@ const Nav = () => {
                 />
               </Box>
               <Box>
-              {/* { profile ? ( <Avatar
-                  aria-controls={openMenu ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={openMenu ? "true" : undefined}
-                  onClick={handleClick}
-                  sx={{ cursor: "pointer" }}
-                  src={profile}
-                >
-                 
-                </Avatar> ) : */}
+                {profile ? (
                   <Avatar
-                  aria-controls={openMenu ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={openMenu ? "true" : undefined}
-                  onClick={handleClick}
-                  sx={{ cursor: "pointer" }}
-                >
-                  <PersonOutlineIcon
-                    sx={{ fontSize: "30px", color: "black" }}
-                  />
-                </Avatar> 
+                    aria-controls={openMenu ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={openMenu ? "true" : undefined}
+                    onClick={handleClick}
+                    sx={{ cursor: "pointer" }}
+                    src={profile}
+                  ></Avatar>
+                ) : (
+                  <Avatar
+                    aria-controls={openMenu ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={openMenu ? "true" : undefined}
+                    onClick={handleClick}
+                    sx={{ cursor: "pointer" }}
+                  >
+                    <PersonOutlineIcon
+                      sx={{ fontSize: "30px", color: "black" }}
+                    />
+                  </Avatar>
+                )}
                 <Menu
                   id="basic-menu"
                   className="menu"

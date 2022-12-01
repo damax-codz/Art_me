@@ -27,10 +27,19 @@ const NavSlide = (props) => {
   const navigate = useNavigate();
   const { logvalue } = useSelector((state) => state.logged);
   const { userdetails } = useSelector((state) => state.user);
-  const [profile] = useState(userdetails[0].profileImg);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
   const dispatch = useDispatch();
+  const [ profile,setProfile ] = useState()
+  
+  
+  
+  // const [profile] = useState(userdetails[0].profileImg);
+  if (userdetails[0].profileImg !== null) {
+    setProfile(userdetails[0].profileImg)
+  }
+
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
