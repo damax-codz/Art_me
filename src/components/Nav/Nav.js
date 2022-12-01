@@ -30,7 +30,7 @@ const Nav = () => {
   const { logvalue } = useSelector((state) => state.logged);
   const dispatch = useDispatch();
   const { userdetails } = useSelector((state) => state.user);
-  const [profile] = useState(userdetails[0].profileImg);
+  // const [profile] = useState(userdetails[0].profileImg);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
   const handleClick = (event) => {
