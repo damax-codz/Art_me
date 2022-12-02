@@ -46,17 +46,17 @@ const Profile = () => {
   // }
 
   useEffect(() => {
-    if (userdetails !== [] && userdetails[0].profileImg) {
+    if (userdetails !== [] && "profileImg" in userdetails[0]) {
       setProfile(userdetails[0].profileImg); //problem
-    };
-    if (userdetails !== [] && userdetails[0].bio) {
+    }
+    if (userdetails !== [] && "bio" in  userdetails[0]) {
       setBio(userdetails[0].bio); //problem
     };
-    if (userdetails !== [] && userdetails[0].coverImg) {
+    if (userdetails !== [] && "coverImg" in userdetails[0]) {
       setCover(userdetails[0].coverImg); //problem
     }
   
-    if (userdetails !== [] && userdetails[0].phone_number) {
+    if (userdetails !== [] && "phone_number" in  userdetails[0]) {
       setNumber(userdetails[0].phone_number); //problem
     }
   
