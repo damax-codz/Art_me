@@ -26,21 +26,43 @@ const Profile = () => {
   const [value, setValue] = useState("one");
   const [updateprofile, setUpdateprofile] = useState(false);
   const { userdetails } = useSelector((state) => state.user);
-  const [profile,setProfile] = useState(userdetails[0].profileImg);
-  const [bio,setBio] = useState(userdetails[0].bio);
-  const [cover,setCover] = useState(userdetails[0].coverImg);
+  const [profile,setProfile] = useState("");
+  const [bio,setBio] = useState("");
+  const [cover,setCover] = useState("");
+  const [number,setNumber] = useState("");
 
-  if (userdetails[0].profileImg !== null) {
-    setProfile(userdetails[0].profileImg)
-  }
+  // if (userdetails !== [] && userdetails[0].profileImg) {
+  //   setProfile(userdetails[0].profileImg); //problem
+  // }
 
-  if (userdetails[0].bio !== null) {
-    setBio(userdetails[0].bio)
-  }
 
-  if (userdetails[0].coverImg !== null) {
-    setCover(userdetails[0].coverImg)
-  }
+  // if (userdetails !== [] && userdetails[0].bio) {
+  //   setBio(userdetails[0].bio); //problem
+  // }
+
+
+  // if (userdetails !== [] && userdetails[0].coverImg) {
+  //   setCover(userdetails[0].coverImg); //problem
+  // }
+
+  useEffect(() => {
+    if (userdetails !== [] && userdetails[0].profileImg) {
+      setProfile(userdetails[0].profileImg); //problem
+    };
+    if (userdetails !== [] && userdetails[0].bio) {
+      setBio(userdetails[0].bio); //problem
+    };
+    if (userdetails !== [] && userdetails[0].coverImg) {
+      setCover(userdetails[0].coverImg); //problem
+    }
+  
+    if (userdetails !== [] && userdetails[0].phone_number) {
+      setNumber(userdetails[0].phone_number); //problem
+    }
+  
+  }, []);
+
+
 
 
 
@@ -213,7 +235,7 @@ const Profile = () => {
                     {" "}
                     <PhoneAndroidIcon />
                   </Avatar>
-                  <p className="detail_text">Add Phone</p>
+                  {number ? <p className="detail_text"> {number} </p>  : <p className="detail_text">Add Phone</p>}
                 </Box>
                 <Box className="detail">
                   <Avatar sx={{ width: 35, height: 35 }}>

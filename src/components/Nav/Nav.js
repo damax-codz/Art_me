@@ -32,13 +32,9 @@ const Nav = () => {
   const { userdetails } = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
-  const [ profile,setProfile ] = useState()
+  const [ profile, setProfile ] = useState("")
 
-  // const [profile] = useState(userdetails[0].profileImg);
-
-  if (userdetails[0].profileImg !== null) {
-    setProfile(userdetails[0].profileImg)
-  }
+ 
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -48,7 +44,9 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    console.log(userdetails);
+    if (userdetails !== [] && userdetails[0].profileImg) {
+      setProfile(userdetails[0].profileImg); //problem
+    }
   }, []);
 
   function startAnim() {

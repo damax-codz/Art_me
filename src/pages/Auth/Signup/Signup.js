@@ -30,7 +30,7 @@ const Signup = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend.herokuapp.com/api/signup",
+        url: "https://api-artme.onrender.com/api/signup",
         data: body,
         headers: { "Content-Type": "application/json" },
       });

@@ -55,7 +55,7 @@ const UpdateProfile = (props) => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend.herokuapp.com/api/user/profileImg",
+        url: "https://api-artme.onrender.com/api/user/profileImg",
         data: JSON.stringify({
           profileImage: data,
         }),
@@ -75,7 +75,7 @@ const UpdateProfile = (props) => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend.herokuapp.com/api/user/coverImg",
+        url: "https://api-artme.onrender.com/api/user/coverImg",
         data: JSON.stringify({
           coverImage: data,
         }),
@@ -102,7 +102,7 @@ const UpdateProfile = (props) => {
       try {
         const response = await axios({
           method: "patch",
-          url: "https://artme-backend.herokuapp.com/api/user/bio",
+          url: "https://api-artme.onrender.com/api/user/bio",
           data: biodata,
           headers: { "Content-Type": "application/json" },
         });
@@ -115,7 +115,7 @@ const UpdateProfile = (props) => {
   // when this function is called it fetches the users data and update the user details in the store
   async function UpdateUserDetails() {
     axios
-      .get("https://artme-backend.herokuapp.com/api/users/logged-in", {
+      .get("https://api-artme.onrender.com/api/users/logged-in", {
         headers: {
           Authorization: token,
         },

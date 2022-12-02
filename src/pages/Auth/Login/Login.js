@@ -28,16 +28,16 @@ const Login = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend.herokuapp.com/api/login",
+        url: "https://api-artme.onrender.com/api/login",
         data: body,
         headers: { "Content-Type": "application/json" },
       });
-
+      console.log(response)
       if (response.status === 200) {
         toast.success("Login Successful");
         dispatch(loggedIn());
         dispatch(setToken(response.data.data))
-        axios.get("https://artme-backend.herokuapp.com/api/users/logged-in", {
+        axios.get("https://api-artme.onrender.com/api/users/logged-in", {
             headers: {
               Authorization: response.data.data,
             },
