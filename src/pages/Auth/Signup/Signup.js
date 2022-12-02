@@ -46,7 +46,7 @@ const Signup = () => {
       if(error){
         toast.error("Signup Unsuccessful");
       }
-      // console.log(error);
+      console.log(error);
     }
   }
 
@@ -94,7 +94,7 @@ const Signup = () => {
               email: Yup.string()
                 .required("Email is required !")
                 .email("invalid email !"),
-              password: Yup.string().required("Password is required !").min(6,"Password has to be 6 or more characters"),
+              password: Yup.string().required("Password is required !").min(8,"Password has to be 8 or more characters"),
               confirmpassword: Yup.string()
                 .required("you need to renter your password")
                 .oneOf([Yup.ref("password"), null], "Passwords must match"),

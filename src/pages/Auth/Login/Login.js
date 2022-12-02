@@ -32,7 +32,8 @@ const Login = () => {
         data: body,
         headers: { "Content-Type": "application/json" },
       });
-      console.log(response)
+      // console.log(response)
+      // console.log("heyy")
       if (response.status === 200) {
         toast.success("Login Successful");
         dispatch(loggedIn());
@@ -101,7 +102,7 @@ const Login = () => {
                   .email("invalid email !"),
                 password: Yup.string()
                   .required("Password is required !")
-                  .min(6, "Password has to be 6 or more characters"),
+                  .min(8, "Password has to be 8 or more characters"),
               })}
               onSubmit={async (values) => {
                 const body = {
