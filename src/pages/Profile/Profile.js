@@ -36,21 +36,26 @@ const Profile = () => {
     // if (userdetails !== [] ) {
     //   setProfile(userdetails[0].profileImg); //problem
     // }
-    userdetails === [] ?  setProfile(userdetails[0].profileImg) : setProfile("")
+    userdetails === [] ?   setProfile("") : setProfile(userdetails[0].profileImg)
     // if (userdetails !== [] ) {
     //   setBio(userdetails[0].bio); //problem
     // };
-    userdetails === [] ?  setBio(userdetails[0].bio) : setBio("")
+    userdetails === [] ?  setBio("") : setBio(userdetails[0].bio) 
     // if (userdetails !== [] ) {
     //   setCover(userdetails[0].coverImg); //problem
     // }
-    userdetails === [] ?  setCover(userdetails[0].coverImg) : setCover("")
+    userdetails === [] ?   setCover("") : setCover(userdetails[0].coverImg)
   
     // if (userdetails !== [] ) {
     //   setNumber(userdetails[0].phone_number); //problem
     // }
 
-    userdetails === [] ?  setNumber(userdetails[0].phone_number) : setNumber("")
+    userdetails === [] ?   setNumber("") : setNumber(userdetails[0].phone_number) 
+
+
+    console.log(
+      profile
+    )
   
   }, []);
 
@@ -68,9 +73,9 @@ const Profile = () => {
     setUpdateprofile(!updateprofile);
   }
 
-  useEffect(() => {
-    console.log(userdetails);
-  }, []);
+  // useEffect(() => {
+  //   console.log(userdetails);
+  // }, []);
 
   return (
     <>
