@@ -44,8 +44,11 @@ const NavSlide = (props) => {
   };
 
   useEffect(() => {
-    userdetails === [] ?  setProfile("") :  setProfile(userdetails[0].profileImg) 
-  }, []);
+    userdetails.length === 0  ?  setProfile(""): setProfile(userdetails[0].profileImg)
+
+ }, []);
+
+
 
   return (
     <div>

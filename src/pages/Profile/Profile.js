@@ -36,21 +36,21 @@ const Profile = () => {
     // if (userdetails !== [] ) {
     //   setProfile(userdetails[0].profileImg); //problem
     // }
-    userdetails === [] ?   setProfile("") : setProfile(userdetails[0].profileImg)
+    userdetails.length === 0  ?  setProfile(""): setProfile(userdetails[0].profileImg)
     // if (userdetails !== [] ) {
     //   setBio(userdetails[0].bio); //problem
     // };
-    userdetails === [] ?  setBio("") : setBio(userdetails[0].bio) 
+    userdetails.length === 0?  setBio("") : setBio(userdetails[0].bio) 
     // if (userdetails !== [] ) {
     //   setCover(userdetails[0].coverImg); //problem
     // }
-    userdetails === [] ?   setCover("") : setCover(userdetails[0].coverImg)
+    userdetails.length === 0 ?   setCover("") : setCover(userdetails[0].coverImg)
   
     // if (userdetails !== [] ) {
     //   setNumber(userdetails[0].phone_number); //problem
     // }
 
-    userdetails === [] ?   setNumber("") : setNumber(userdetails[0].phone_number) 
+    userdetails.length === 0 ?   setNumber("") : setNumber(userdetails[0].phone_number) 
 
 
     console.log(

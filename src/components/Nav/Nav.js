@@ -37,6 +37,7 @@ const Nav = () => {
   // const [number,setNumber] = useState(userdetails[0].phone_number);
 
  
+  // console.log(userdetails)
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -44,9 +45,11 @@ const Nav = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  // change to non strict mode and see
 
   useEffect(() => {
-    userdetails === [] ?  setProfile("") :  setProfile(userdetails[0].profileImg) 
+     userdetails.length === 0  ?  setProfile(""): setProfile(userdetails[0].profileImg)
+
   }, []);
 
 
@@ -248,7 +251,9 @@ const Nav = () => {
                 </Menu>
               </Box>
 
-              <Button variant="contained" className="log-nav-main-btn">
+              <Button variant="contained" className="log-nav-main-btn" 
+              onClick={ ()=> navigate("/Art_me/profile") }
+              >
                 upload
               </Button>
             </Box>
