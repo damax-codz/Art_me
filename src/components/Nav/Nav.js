@@ -48,9 +48,7 @@ const Nav = () => {
     if (userdetails !== [] ) {
       setProfile(userdetails[0].profileImg); //problem
     };
-    if (userdetails !== [] ) {
-      setNumber(userdetails[0].phone_number); //problem
-    }
+  
   }, []);
 
   // useEffect(() => {
