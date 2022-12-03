@@ -26,41 +26,28 @@ const Profile = () => {
   const [value, setValue] = useState("one");
   const [updateprofile, setUpdateprofile] = useState(false);
   const { userdetails } = useSelector((state) => state.user);
-  const [profile,setProfile] = useState(userdetails[0].profileImg);
-  const [bio,setBio] = useState(userdetails[0].bio);
-  const [cover,setCover] = useState(userdetails[0].coverImg);
-  const [number,setNumber] = useState(userdetails[0].phone_number);
-
-  // if (userdetails !== [] && userdetails[0].profileImg) {
-  //   setProfile(userdetails[0].profileImg); //problem
-  // }
+  const [profile,setProfile] = useState("");
+  const [bio,setBio] = useState("");
+  const [cover,setCover] = useState("");
+  const [number,setNumber] = useState("");
 
 
-  // if (userdetails !== [] && userdetails[0].bio) {
-  //   setBio(userdetails[0].bio); //problem
-  // }
-
-
-  // if (userdetails !== [] && userdetails[0].coverImg) {
-  //   setCover(userdetails[0].coverImg); //problem
-  // }
-
-  // useEffect(() => {
-  //   if (userdetails !== [] && userdetails[0].hasOwnProperty("profileImg")) {
-  //     setProfile(userdetails[0].profileImg); //problem
-  //   }
-  //   if (userdetails !== [] && userdetails[0].hasOwnProperty("bio")) {
-  //     setBio(userdetails[0].bio); //problem
-  //   };
-  //   if (userdetails !== [] && userdetails[0].hasOwnProperty("coverImg")) {
-  //     setCover(userdetails[0].coverImg); //problem
-  //   }
+  useEffect(() => {
+    if (userdetails !== [] ) {
+      setProfile(userdetails[0].profileImg); //problem
+    }
+    if (userdetails !== [] ) {
+      setBio(userdetails[0].bio); //problem
+    };
+    if (userdetails !== [] ) {
+      setCover(userdetails[0].coverImg); //problem
+    }
   
-  //   if (userdetails !== [] &&userdetails[0].hasOwnProperty("phone_number")) {
-  //     setNumber(userdetails[0].phone_number); //problem
-  //   }
+    if (userdetails !== [] ) {
+      setNumber(userdetails[0].phone_number); //problem
+    }
   
-  // }, []);
+  }, []);
 
 
 

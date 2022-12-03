@@ -30,7 +30,7 @@ const NavSlide = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
   const dispatch = useDispatch();
-  const [profile, setProfile] = useState(userdetails[0].profileImg);
+  const [profile, setProfile] = useState("");
 
   // if (userdetails !== [] && userdetails[0].profileImg) {
   //   setProfile(userdetails[0].profileImg); //problem
@@ -42,11 +42,11 @@ const NavSlide = (props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  // useEffect(() => {
-  //   if (userdetails !== [] && userdetails[0].hasOwnProperty("profileImg")) {
-  //     setProfile(userdetails[0].profileImg); //problem
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (userdetails !== [] ) {
+      setProfile(userdetails[0].profileImg); //problem
+    }
+  }, []);
 
   return (
     <div>
