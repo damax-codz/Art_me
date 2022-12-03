@@ -33,19 +33,24 @@ const Profile = () => {
 
 
   useEffect(() => {
-    if (userdetails !== [] ) {
-      setProfile(userdetails[0].profileImg); //problem
-    }
-    if (userdetails !== [] ) {
-      setBio(userdetails[0].bio); //problem
-    };
-    if (userdetails !== [] ) {
-      setCover(userdetails[0].coverImg); //problem
-    }
+    // if (userdetails !== [] ) {
+    //   setProfile(userdetails[0].profileImg); //problem
+    // }
+    userdetails ? setProfile(userdetails[0].profileImg) : setProfile('')
+    // if (userdetails !== [] ) {
+    //   setBio(userdetails[0].bio); //problem
+    // };
+    userdetails ? setBio(userdetails[0].bio) : setBio('')
+    // if (userdetails !== [] ) {
+    //   setCover(userdetails[0].coverImg); //problem
+    // }
+    userdetails ? setCover(userdetails[0].coverImg) : setCover('')
   
-    if (userdetails !== [] ) {
-      setNumber(userdetails[0].phone_number); //problem
-    }
+    // if (userdetails !== [] ) {
+    //   setNumber(userdetails[0].phone_number); //problem
+    // }
+
+    userdetails ? setNumber(userdetails[0].phone_number) : setNumber('')
   
   }, []);
 
