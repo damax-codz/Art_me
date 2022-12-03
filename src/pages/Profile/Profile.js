@@ -46,17 +46,17 @@ const Profile = () => {
   // }
 
   useEffect(() => {
-    if (userdetails !== [] && "profileImg" in userdetails[0]) {
+    if (userdetails !== [] && userdetails[0].hasOwnProperty("profileImg")) {
       setProfile(userdetails[0].profileImg); //problem
     }
-    if (userdetails !== [] && "bio" in  userdetails[0]) {
+    if (userdetails !== [] && userdetails[0].hasOwnProperty("bio")) {
       setBio(userdetails[0].bio); //problem
     };
-    if (userdetails !== [] && "coverImg" in userdetails[0]) {
+    if (userdetails !== [] && userdetails[0].hasOwnProperty("coverImg")) {
       setCover(userdetails[0].coverImg); //problem
     }
   
-    if (userdetails !== [] && "phone_number" in  userdetails[0]) {
+    if (userdetails !== [] &&userdetails[0].hasOwnProperty("phone_number")) {
       setNumber(userdetails[0].phone_number); //problem
     }
   

@@ -33,6 +33,7 @@ const Nav = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
   const [ profile, setProfile ] = useState("")
+  const [number,setNumber] = useState("");
 
  
 
@@ -44,8 +45,11 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    if (userdetails !== [] && "profileImg" in userdetails[0]) {
+    if (userdetails !== [] &&  userdetails[0].hasOwnProperty("profileImg")) {
       setProfile(userdetails[0].profileImg); //problem
+    };
+    if (userdetails !== [] &&userdetails[0].hasOwnProperty("phone_number")) {
+      setNumber(userdetails[0].phone_number); //problem
     }
   }, []);
 
