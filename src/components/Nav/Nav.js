@@ -19,7 +19,7 @@ import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
 import SearchIcon from "@mui/icons-material/Search";
 import { loggedOut } from "../../redux/Logged";
-import { resetDetails } from "../../redux/resetDetails"
+import { resetDetails } from "../../redux/UserDetail"
 import { useDispatch, useSelector } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
