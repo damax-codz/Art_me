@@ -45,17 +45,11 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    // if (userdetails !== [] ) {
-    //   setProfile(userdetails[0].profileImg); //problem
-    // };
-    userdetails ? setProfile(userdetails[0].profileImg) : setProfile('')
-  
+    userdetails === [] ?  setProfile(userdetails[0].profileImg) : setProfile("")
   }, []);
 
-  // useEffect(() => {
-  // console.log(userdetails)
-  // }, [])
-  
+
+
 
   function startAnim() {
     setAnimation({
