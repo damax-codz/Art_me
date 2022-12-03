@@ -45,6 +45,7 @@ const Login = () => {
           })
           .then(function (response) {
             dispatch(setDetails(response.data.data));
+            // console.log(response)
           })
           .catch(function (error) {
             //   console.log(error);

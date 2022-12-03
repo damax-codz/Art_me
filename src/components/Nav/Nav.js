@@ -32,8 +32,8 @@ const Nav = () => {
   const { userdetails } = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
-  const [ profile, setProfile ] = useState("")
-  const [number,setNumber] = useState("");
+  const [ profile ] = useState(userdetails[0].profileImg)
+  // const [number,setNumber] = useState(userdetails[0].phone_number);
 
  
 
@@ -44,14 +44,19 @@ const Nav = () => {
     setAnchorEl(null);
   };
 
-  useEffect(() => {
-    if (userdetails !== [] &&  userdetails[0].hasOwnProperty("profileImg")) {
-      setProfile(userdetails[0].profileImg); //problem
-    };
-    if (userdetails !== [] &&userdetails[0].hasOwnProperty("phone_number")) {
-      setNumber(userdetails[0].phone_number); //problem
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (userdetails !== [] &&  userdetails[0].hasOwnProperty("profileImg")) {
+  //     setProfile(userdetails[0].profileImg); //problem
+  //   };
+  //   if (userdetails !== [] &&userdetails[0].hasOwnProperty("phone_number")) {
+  //     setNumber(userdetails[0].phone_number); //problem
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  // console.log(userdetails)
+  // }, [])
+  
 
   function startAnim() {
     setAnimation({
