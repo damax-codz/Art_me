@@ -45,7 +45,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    userdetails === [] ?  setProfile(userdetails[0].profileImg) : setProfile("")
+    userdetails === [] ?  setProfile("") :  setProfile(userdetails[0].profileImg) 
   }, []);
 
 
