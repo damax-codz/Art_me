@@ -1,0 +1,88 @@
+@mixin font($f, $s, $w, $size, $c) {
+    font-family: $f;
+    font-style: $s;
+    font-weight: $w;
+    font-size: $size;
+    color: $c;
+  }
+  
+  .main_home_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .post_wrapper{
+      width: 100%;
+      .post_container{
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
+        padding: 20px 20px;
+        .poster{
+          display: flex;
+          width: 100%;
+          .poster_image{
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.24);
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+          .poster_image_true{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            // border: 3px solid white;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          }
+          .poster_details{
+            width: 60%;
+            margin-top: 5px;
+            .poster_name{
+              @include font("Quicksand", sans-serif, 600, 15px, rgb(0, 0, 0));
+            }
+            .post_details{
+              @include font("Noto Sans JP", nans-serif, 500, 13px, rgb(0, 0, 0));
+            }
+          }
+        }
+        .post_image{
+          width: 80%;
+          border-radius: 15px;
+          margin-left: 60px;      
+          margin-top: 10px;   
+          overflow: hidden;
+          .post_image_single_wrapper{
+            // position: relative;
+            border: 1px solid white;
+          }
+          .post_image_single{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            // border-radius: inherit;
+          }
+        }
+        .post_actions{
+          width: 80%;
+          margin-left: 60px;
+          display: flex;
+          margin-top: 10px;
+          svg{
+            margin-right: 100px;
+            cursor: pointer;
+          }
+
+        }
+      }
+    }
+  }
+
+  @media (max-width:800px) {
+    .main_home_page .post_wrapper .post_container .post_image{
+      width: 90%;
+    }
+  }

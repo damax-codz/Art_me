@@ -1,0 +1,81 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+
+.upload_box {
+  min-width: 400px;
+  // padding: 5px ;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .upload_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0%;
+    background-color: white;
+    width: 100%;
+    .top_text {
+      @include font("Quicksand", nans-serif, 600, 18px, rgb(0, 0, 0));
+    }
+  }
+  .post_image_container {
+    width: 80%;
+    min-height: 200px;
+    border: 1px dashed rgba(0, 0, 0, 0.439);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .form_input_wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      input {
+        width: 80%;
+        height: 40px;
+        border: none;
+        margin: 10px 0px;
+        padding: 0px 10px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .nav-buttons {
+    display: flex;
+    margin-top: 20px;
+    width: 80%;
+    
+    .nav-main-btn {
+      border: 1px solid #a52a2ade;
+      @include font(Quicksand, sans-serif, 400, 13px, rgba(165, 42, 42, 1));
+      width: 100px;
+      height: 40px;
+      // margin: 0px 5px;
+      text-transform: none;
+      border-radius: 2px;
+    }
+    .save {
+      @extend .nav-main-btn;
+      background-color: rgba(165, 42, 42, 1);
+      margin-left: 5px;
+      color: white;
+    }
+  }
+}

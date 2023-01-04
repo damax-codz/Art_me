@@ -1,0 +1,94 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+
+.comment_box {
+  min-width: 355px;
+  // padding: 5px;
+  .poster {
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
+    display: flex;
+
+    .poster_image {
+      width: 15%;
+      div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.18);
+      }
+    }
+    .poster_details {
+      width: 80%;
+      margin-top: 5px;
+
+      .poster_name {
+        @include font("Quicksand", sans-serif, 600, 15px, rgb(0, 0, 0));
+      }
+      .post_details {
+        @include font("Quicksand", nans-serif, 600, 12px, rgb(0, 0, 0));
+      }
+    }
+    .post_actions {
+      width: 10%;
+      margin-top: 10px;
+      display: flex;
+      justify-content: end;
+
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+  .comment_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0%;
+    background-color: white;
+    .top_text {
+      @include font("Quicksand", nans-serif, 600, 18px, rgb(0, 0, 0));
+    }
+  }
+  form {
+    position: sticky;
+    bottom: 0;
+    margin: 0%;
+    .comment_input_wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      margin: 0%;
+      padding: 10px 20px;
+      .form_input {
+        width: 90%;
+        height: 60px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.188);
+        padding: 0px 10px;
+        &:focus {
+          outline: none;
+          border: 1px solid rgba(0, 0, 0, 0.597);
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width:700px) {
+  .comment_box .poster{
+    padding: 10px 5px;
+  }
+  .comment_box .poster .poster_details{
+    width: 70%;
+  }
+}

@@ -39,7 +39,7 @@ const Signup = () => {
       if (response.status === 200) {
         toast.success("Signup Successful");
         dispatch(loggedIn());
-        navigate("/Art_me/gallery")
+        navigate("/Art_me/homepage/home")
       }
 
     } catch (error) {
@@ -121,7 +121,7 @@ const Signup = () => {
                 <Box className="form_input_wrapper">
                   <label htmlFor="fullname">Fullname</label>
                   <input
-                    type="fullname"
+                    type="text"
                     id="fullname"
                     name="fullname"
                     onChange={handleChange}

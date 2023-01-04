@@ -19,7 +19,7 @@ import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
 import SearchIcon from "@mui/icons-material/Search";
 import { loggedOut } from "../../redux/Logged";
-import { resetDetails } from "../../redux/UserDetail"
+import { resetDetails } from "../../redux/UserDetail";
 import { useDispatch, useSelector } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
@@ -33,10 +33,9 @@ const Nav = () => {
   const { userdetails } = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
-  const [ profile,setProfile ] = useState("")
+  const [profile, setProfile] = useState("");
   // const [number,setNumber] = useState(userdetails[0].phone_number);
 
- 
   // console.log(userdetails)
 
   const handleClick = (event) => {
@@ -48,12 +47,10 @@ const Nav = () => {
   // change to non strict mode and see
 
   useEffect(() => {
-     userdetails.length === 0  ?  setProfile(""): setProfile(userdetails[0].profileImg)
-
+    userdetails.length === 0
+      ? setProfile("")
+      : setProfile(userdetails[0].profileImg);
   }, []);
-
-
-
 
   function startAnim() {
     setAnimation({
@@ -124,47 +121,47 @@ const Nav = () => {
                   Artme{" "}
                 </Typography>
               </Box>
+            </Box>
+            <Box
+              className="nav-links"
+              sx={{
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              <ul>
+                <li className="nav-container-link" onClick={startAnim}>
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/home"), 2000);
+                    }}
+                  >
+                    Home
+                  </Box>
+                </li>
+                <li className="nav-container-link" onClick={startAnim}>
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/home"), 2000);
+                    }}
+                  >
+                    Find Artist
+                  </Box>
+                </li>
 
-              <Box
-                className="nav-links"
-                sx={{
-                  display: { xs: "none", md: "flex" },
-                }}
-              >
-                <ul>
-                  <li className="nav-container-link" onClick={startAnim}>
-                    <Box
-                      className="link"
-                      onClick={() => {
-                        setTimeout(() => navigate("/Art_me/home"), 2000);
-                      }}
-                    >
-                      Home
-                    </Box>
-                  </li>
-                  <li className="nav-container-link" onClick={startAnim}>
-                    <Box
-                      className="link"
-                      onClick={() => {
-                        setTimeout(() => navigate("/Art_me/home"), 2000);
-                      }}
-                    >
-                      Find Artist
-                    </Box>
-                  </li>
-
-                  {/* i can later hide this link to be viewable by only those who are logged in  */}
-                  <li className="nav-container-link" onClick={startAnim}>
-                    <Box
-                      className="link"
-                      onClick={() => {
-                        setTimeout(() => navigate("/Art_me/gallery"), 2000);
-                      }}
-                    >
-                      Gallery
-                    </Box>
-                  </li>
-                  <li className="nav-container-link" onClick={startAnim}>
+                {/* i can later hide this link to be viewable by only those who are logged in  */}
+                <li className="nav-container-link" onClick={startAnim}>
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/gallery"), 2000);
+                    }}
+                  >
+                    Gallery
+                  </Box>
+                </li>
+                {/* <li className="nav-container-link" onClick={startAnim}>
                     <Box
                       className="link"
                       onClick={() => {
@@ -173,9 +170,8 @@ const Nav = () => {
                     >
                       About
                     </Box>
-                  </li>
-                </ul>
-              </Box>
+                  </li> */}
+              </ul>
             </Box>
 
             {/* creating search buttons profile and upload button */}
@@ -230,7 +226,7 @@ const Nav = () => {
                 >
                   <MenuItem
                     onClick={() => {
-                      navigate("/Art_me/profile");
+                      navigate("/Art_me/homepage/profile");
                       handleClose();
                     }}
                     className="menu_item"
@@ -241,7 +237,7 @@ const Nav = () => {
                     onClick={() => {
                       handleClose();
                       dispatch(loggedOut());
-                      dispatch(resetDetails())
+                      dispatch(resetDetails());
                       navigate("/Art_me/home");
                     }}
                     className="menu_item"
@@ -251,8 +247,10 @@ const Nav = () => {
                 </Menu>
               </Box>
 
-              <Button variant="contained" className="log-nav-main-btn" 
-              onClick={ ()=> navigate("/Art_me/profile") }
+              <Button
+                variant="contained"
+                className="log-nav-main-btn"
+                onClick={() => navigate("/Art_me/profile")}
               >
                 upload
               </Button>
@@ -336,12 +334,17 @@ const Nav = () => {
                 </li>
 
                 {/* i can later hide this link to be viewable by only those who are logged in  */}
-                {/* <li className="nav-container-link">
-                  <Box className="link" onClick={handleLoggedModalOpen}>
+                <li className="nav-container-link">
+                  <Box
+                    className="link"
+                    onClick={() => {
+                      setTimeout(() => navigate("/Art_me/gallery"), 2000);
+                    }}
+                  >
                     Gallery
                   </Box>
-                </li> */}
-                <li className="nav-container-link" onClick={startAnim}>
+                </li>
+                {/* <li className="nav-container-link" onClick={startAnim}>
                   <Box
                     className="link"
                     onClick={() => {
@@ -350,7 +353,7 @@ const Nav = () => {
                   >
                     About
                   </Box>
-                </li>
+                </li> */}
               </ul>
             </Box>
             <Box

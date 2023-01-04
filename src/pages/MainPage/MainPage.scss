@@ -1,0 +1,165 @@
+@mixin font($f, $s, $w, $size, $c) {
+  font-family: $f;
+  font-style: $s;
+  font-weight: $w;
+  font-size: $size;
+  color: $c;
+}
+.nav-main-title {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  .nav-title-text {
+    @include font(Satisfy, cursive, 600, 34px, #33343d);
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .anim {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(165, 42, 42, 1);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    // justify-content: center;
+  }
+}
+.nav_bottom {
+  position: sticky;
+  bottom: 0%;
+  width: 100%;
+  background-color: white;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.0801);
+  svg{
+    cursor: pointer;
+  }
+}
+
+.profile_container {
+  width: 100%;
+  display: flex;
+
+  .profile_left_nav {
+    // width: 20%;
+    overflow-y: scroll;
+    height: 100vh;
+    padding-left: 34px;
+    border-right: 1px solid rgba(0, 0, 0, 0.0801);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
+    position: sticky;
+    top: 0px;
+    flex-direction: column;
+    .nav-title {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0%;
+      background-color: white;
+      padding-top: 20px;
+
+      .nav-title-text {
+        @include font(Satisfy, cursive, 600, 34px, #33343d);
+        margin-left: 5px;
+        cursor: pointer;
+      }
+
+      .anim {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(165, 42, 42, 1);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        // justify-content: center;
+      }
+    }
+
+    .left_nav_title {
+      @include font(Quicksand, sans-serif, 600, 14px, rgba(0, 0, 0, 0.441));
+      margin: 15px 0px;
+    }
+    a {
+      text-decoration: none;
+    }
+    .active {
+      // border: 1px solid black;
+      width: 80%;
+      padding: 3px 10px;
+      display: flex;
+      align-items: center;
+      margin: 10px 0px;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.123);
+      .left_nav_link {
+        @include font(Noto Sans JP, sans-serif, 600, 15px, rgb(0, 0, 0));
+        cursor: pointer;
+        width: 50%;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        margin: 0px 0px;
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+    .left_nav_link {
+      @include font(Noto Sans JP, sans-serif, 300, 15px, rgb(0, 0, 0));
+      cursor: pointer;
+      // border: 1px solid black;
+      width: 80%;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      margin: 10px 0px;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .profile_right_nav {
+    // width: 20%;
+    overflow-y: scroll;
+    height: 100vh;
+    padding-left: 34px;
+    padding-top: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.0801);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
+    position: sticky;
+    top: 0px;
+    flex-direction: column;
+    .right_nav_title {
+      @include font(Quicksand, sans-serif, 600, 14px, rgba(0, 0, 0, 0.441));
+      margin: 15px 0px;
+    }
+    .page_following {
+      display: flex;
+      align-items: center;
+      margin: 10px 0px;
+      cursor: pointer;
+      .page_name {
+        @include font(Noto Sans JP, sans-serif, 300, 12px, rgb(0, 0, 0));
+        margin: 0px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: "600px") {
+  .profile_container .profile_image_container .uploads {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

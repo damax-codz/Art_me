@@ -2,7 +2,7 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import "./home.scss";
 import CallMadeIcon from "@mui/icons-material/CallMade";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footer/footer";
 import Nav from "../../components/Nav/Nav";
 import FlightIcon from "../../components/images/icons/flight.png";
 import LoveIcon from "../../components/images/icons/heart.png";
@@ -36,7 +36,7 @@ const Home = () => {
     setLoggedModalStatus(!LoggedModalStatus);
   }
   function handleLoggedModalOpen() {
-    // would first useSelector to check if the person is logged in if not prompt the login modal if the
+    // would first useSelector to check if the perslocaon is logged in if not prompt the login modal if the
     // person is logged in, would navigate to gallery
     // navigate("/Art_me/gallery") if person is logged in
     if (logvalue) {

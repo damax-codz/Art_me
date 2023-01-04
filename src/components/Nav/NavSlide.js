@@ -44,11 +44,10 @@ const NavSlide = (props) => {
   };
 
   useEffect(() => {
-    userdetails.length === 0  ?  setProfile(""): setProfile(userdetails[0].profileImg)
-
- }, []);
-
-
+    userdetails.length === 0
+      ? setProfile("")
+      : setProfile(userdetails[0].profileImg);
+  }, []);
 
   return (
     <div>
@@ -57,7 +56,7 @@ const NavSlide = (props) => {
           <Dialog
             fullScreen
             open={props.openSideNavValue}
-            onClose={props.closeSideNav}
+            onClose={props.handleOpenSlideNav}
             TransitionComponent={Transition}
             sx={{
               "& .MuiDialog-container": {
@@ -170,66 +169,6 @@ const NavSlide = (props) => {
                 >
                   <CloseIcon />
                 </IconButton>
-              </Box>
-            </Box>
-
-            <Box className="nav-slide-links">
-              <Link
-                to="/Art_me/home"
-                onClick={props.closeSideNav}
-                className="links"
-              >
-                Home
-              </Link>
-              <hr />
-              <Link
-                to="/Art_me/home"
-                onClick={props.closeSideNav}
-                className="links"
-              >
-                Find Artist
-              </Link>
-              <hr />
-              <Link
-                to="/Art_me/gallery"
-                onClick={props.closeSideNav}
-                className="links"
-              >
-                Gallery
-              </Link>
-              <hr />
-
-              <Link
-                to="/Art_me/home"
-                onClick={props.closeSideNav}
-                className="links"
-              >
-                About
-              </Link>
-              <hr />
-
-              <Box
-                className="btns"
-                sx={{ display: logvalue ? "none" : "flex" }}
-              >
-                <Link
-                  to="/Art_me/login"
-                  className="nav-slide-btn-link"
-                  onClick={props.closeSideNav}
-                >
-                  <Button variant="outlined" className="nav-btn">
-                    Login
-                  </Button>
-                </Link>
-                <Link
-                  to="/Art_me/signup"
-                  className="nav-slide-btn-link"
-                  onClick={props.closeSideNav}
-                >
-                  <Button variant="contained" className="nav-btn signup-btn">
-                    Signup
-                  </Button>
-                </Link>
               </Box>
             </Box>
 
@@ -387,13 +326,13 @@ const NavSlide = (props) => {
               </Link>
               <hr />
 
-              <Link
+              {/* <Link
                 to="/Art_me/home"
                 onClick={props.closeSideNav}
                 className="links"
               >
                 About
-              </Link>
+              </Link> */}
               <hr />
 
               <Box className="btns">

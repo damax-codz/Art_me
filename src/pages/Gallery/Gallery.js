@@ -23,7 +23,7 @@ import "./gallery.scss";
 import { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import LoveIcon from "../../components/images/icons/heart.png";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footer/footer";
 import MetaTags from "react-meta-tags";
 
 const Gallery = () => {

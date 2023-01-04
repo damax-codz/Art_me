@@ -1,60 +1,20 @@
 @mixin font($f, $s, $w, $size, $c) {
-  font-family: $f;
-  font-style: $s;
-  font-weight: $w;
-  font-size: $size;
-  color: $c;
-}
-
-.profile_container {
-  width: 100%;
-  display: flex;
-
-  .profile_left_nav {
-    // width: 20%;
-    height: 89vh;
-    padding-left: 34px;
-    padding-top: 20px;
-    border-right: 1px solid rgba(0, 0, 0, 0.0801);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
-    position: sticky;
-    top: 80px;
-    flex-direction: column;
-
-    .left_nav_title {
-      @include font(Quicksand, sans-serif, 600, 14px, rgba(0, 0, 0, 0.441));
-      margin: 15px 0px;
-    }
-    .left_nav_link {
-      @include font(Noto Sans JP, sans-serif, 300, 12px, rgb(0, 0, 0));
-      margin: 10px 0px;
-    }
+    font-family: $f;
+    font-style: $s;
+    font-weight: $w;
+    font-size: $size;
+    color: $c;
   }
-  .profile_image_container {
+  
+.profile_image_container {
     // width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    .upload_button{
-      display: flex;
-      justify-content: flex-end;
-      // top: 55 vh;
-      // left: 65%;
-      margin-top: -100px;
-      margin-right: 10px;
-      .log-nav-main-btn {
-        @include font(Quicksand, sans-serif, 300, 11px, rgba(255, 255, 255, 0.797));
-        width: 120px;
-        height: 40px;
-        margin: 0px 5px;
-        background-color: rgba(58, 58, 58, 0.64);
-        text-transform: none;
-        cursor: pointer;
-      }
-    }
+
     .image_wrapper {
       width: 90%;
-      height: 60vh;
+      height: 70vh;
       background-color: white;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
         rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
@@ -65,13 +25,12 @@
       justify-content: space-between;
       .cover_profile {
         width: 100%;
-        height: 75%;
+        height: 85%;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         transition: 0.5s;
         filter: brightness(0.8);
         background-color: rgba(0, 0, 0, 0.153);
-        
       }
       .main_cover_true {
         width: 100%;
@@ -79,29 +38,54 @@
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         transition: 0.5s;
-        filter: brightness(0.5);        
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.5);
       }
-      .main_profile {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        position: absolute;
-        top: 55vh;
-        margin-left: 30px;
-        border: 3px solid white;
-        background-color: rgba(0, 0, 0, 0.153); 
-      }
-      .main_profile_true {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        position: absolute;
-        top: 55vh;
-        margin-left: 30px;
-        border: 3px solid white;
-        img{
-          width: 100%;
-          height: 100%;
+      .profile_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateY(-60px);
+        padding: 0px 20px;
+        .main_profile {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          border: 3px solid white;
+          background-color: rgba(0, 0, 0, 0.153);
+        }
+        .main_profile_true {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          border: 3px solid white;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .upload_button {
+          display: flex;
+          justify-content: flex-end;
+          .log-nav-main-btn {
+            @include font(
+              Quicksand,
+              sans-serif,
+              500,
+              12px,
+              rgba(255, 255, 255, 0.797)
+            );
+            width: 120px;
+            height: 40px;
+            background-color: rgba(58, 58, 58, 0.64);
+            text-transform: none;
+            cursor: pointer;
+          }
         }
       }
 
@@ -113,11 +97,21 @@
         }
         text-transform: none;
       }
-    }
-    .silly_test {
-      height: 1000px;
-      width: 30px;
-      background-color: black;
+      .profile_lil_details {
+        margin: 0px 20px;
+        margin-top: -45px;
+        p:nth-child(1) {
+          @include font(Quicksand, sans-serif, 500, 25px, rgb(0, 0, 0));
+          letter-spacing: -0.5px;
+          margin-bottom: 1px;
+          text-transform: capitalize;
+        }
+        p:nth-child(2) {
+          @include font(Comfortaa, sans-serif, 300, 13px, rgba(0, 0, 0, 0.617));
+          letter-spacing: -0.5px;
+          margin-bottom: 1px;
+        }
+      }
     }
     .uploads {
       display: grid;
@@ -208,59 +202,27 @@
         display: flex;
         flex-direction: column;
         justify-self: center;
-        p{
-            margin: 0%;
+        p {
+          margin: 0%;
         }
       }
     }
-    .about_details{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        .detail{
-            display: flex;
-            align-items: center;
-            padding: 25px 20px;
-            p{
-                margin: 0%;
-                padding-left: 10px;
-            }
-            cursor: pointer;
-            transition: 0.5s;
-            &:hover{
-                background-color: rgba(0, 0, 0, 0.085);
-            }
+    .about_details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      .detail {
+        display: flex;
+        align-items: center;
+        padding: 25px 20px;
+        p {
+          margin: 0%;
+          padding-left: 10px;
         }
-    }
-  }
-  .profile_right_nav {
-    // width: 20%;
-    height: 85vh;
-    padding-left: 34px;
-    padding-top: 20px;
-    border-left: 1px solid rgba(0, 0, 0, 0.0801);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0801);
-    position: sticky;
-    top: 80px;
-    flex-direction: column;
-    .right_nav_title {
-      @include font(Quicksand, sans-serif, 600, 14px, rgba(0, 0, 0, 0.441));
-      margin: 15px 0px;
-    }
-    .page_following {
-      display: flex;
-      align-items: center;
-      margin: 10px 0px;
-      .page_name {
-        @include font(Noto Sans JP, sans-serif, 300, 12px, rgb(0, 0, 0));
-        margin: 0px 10px;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.085);
+        }
       }
     }
   }
-}
-
-
-@media (max-width:"600px") {
-  .profile_container .profile_image_container .uploads{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}

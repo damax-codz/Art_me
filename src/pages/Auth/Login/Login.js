@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux/es/exports";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MetaTags from "react-meta-tags";
-import { setDetails,setToken } from "../../../redux/UserDetail";
+import { setDetails, setToken } from "../../../redux/UserDetail";
 
 const Login = () => {
   const [passwordState, SetPasswordState] = useState(true);
@@ -28,36 +28,34 @@ const Login = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://api-artme.onrender.com/api/login",
+        url: "https://api-artme.onrender.com/login",
         data: body,
         headers: { "Content-Type": "application/json" },
       });
-      // console.log(response)
+      console.log(response);
       // console.log("heyy")
       if (response.status === 200) {
         toast.success("Login Successful");
         dispatch(loggedIn());
-        dispatch(setToken(response.data.data))
-        axios.get("https://api-artme.onrender.com/api/users/logged-in", {
+        dispatch(setToken(response.data.data));
+        axios
+          .get("https://api-artme.onrender.com/users/logged-in", {
             headers: {
               Authorization: response.data.data,
             },
           })
           .then(function (response) {
             dispatch(setDetails(response.data.data));
-            // console.log(response)
+            console.log(response.data.data)
           })
-          .catch(function (error) {
-            //   console.log(error);
-          });
+          .catch(function (error) {});
 
-        navigate("/Art_me/gallery");
+        navigate("/Art_me/homepage/home");
       }
     } catch (error) {
       if (error) {
         toast.error("Login Unsuccessful");
       }
-      // console.log(error);
     }
   }
 
