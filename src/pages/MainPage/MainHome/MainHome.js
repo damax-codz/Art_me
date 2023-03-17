@@ -52,21 +52,21 @@ const MainHome = () => {
         }}
       >
         <Box className="post_wrapper">
-          {posts.map((item, index) => {
+          {posts.map((items, index) => {
             return (
               <Box className="post_container" key={index}>
                 <Box className="poster">
-                  {item.createdBy.profileImg ? (
+                  {items.createdBy.profileImg ? (
                     <Box
                       className="poster_image_true"
-                      sx={{ background: `url(${item.createdBy.profileImg})` }}
+                      sx={{ background: `url(${items.createdBy.profileImg})` }}
                     />
                   ) : (
                     <Box className="poster_image"></Box>
                   )}
                   <Box className="poster_details">
-                    <p className="poster_name"> {item.createdBy.full_name}</p>
-                    <p className="post_details">{item.description}</p>
+                    <p className="poster_name"> {items.createdBy.full_name}</p>
+                    <p className="post_details">{items.description}</p>
                   </Box>
                 </Box>
                 <Grid
@@ -75,10 +75,10 @@ const MainHome = () => {
                   className="post_image"
                   sx={{height: { xs: "200px",md:"400px" }}}
                 >
-                  {item.image.map((item, index) => {
+                  {items.image.map((item, index) => {
                     return (
                       <>
-                        <Grid item xs={ item.length === 1 ? 12 : item.length > 1 ? 6 : null } className="post_image_single_wrapper" key={index}>
+                        <Grid item xs={ items.image.length === 1 ? 12 : items.image.length > 1 ? 6 : null } className="post_image_single_wrapper" key={index}>
                           <Box
                             sx={{
                               background: `url(${item})`,
