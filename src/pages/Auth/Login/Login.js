@@ -28,7 +28,7 @@ const Login = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend-production.up.railway.app//login",
+        url: "https://artme-backend-production.up.railway.app/api/login",
         data: body,
         headers: { "Content-Type": "application/json" },
       });
@@ -39,7 +39,7 @@ const Login = () => {
         dispatch(loggedIn());
         dispatch(setToken(response.data.data));
         axios
-          .get("https://artme-backend-production.up.railway.app//users/logged-in", {
+          .get("https://artme-backend-production.up.railway.app/api/users/logged-in", {
             headers: {
               Authorization: response.data.data,
             },

@@ -41,7 +41,7 @@ const Upload = (props) => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://api-artme.onrender.com/api/create",
+        url: "https://artme-backend-production.up.railway.app/api/create",
         data: body,
         headers: {
           "Content-Type": "application/json",

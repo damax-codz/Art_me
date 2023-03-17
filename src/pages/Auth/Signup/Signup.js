@@ -29,7 +29,7 @@ const Signup = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend-production.up.railway.app//api/signup",
+        url: "https://artme-backend-production.up.railway.app/api/signup",
         data: body,
         headers: { "Content-Type": "application/json" },
       });
