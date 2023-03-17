@@ -29,7 +29,7 @@ const MainHome = () => {
     try {
       const response = await axios({
         method: "get",
-        url: "https://api-artme.onrender.com/api/art/",
+        url: "https://artme-backend-production.up.railway.app//api/art/",
       });
 
       setPosts(response.data.data);
