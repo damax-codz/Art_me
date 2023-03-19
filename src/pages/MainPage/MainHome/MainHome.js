@@ -52,7 +52,7 @@ const MainHome = () => {
         }}
       >
         <Box className="post_wrapper">
-          {posts.map((items, index) => {
+          {posts.reverse().map((items, index) => {
             return (
               <Box className="post_container" key={index}>
                 <Box className="poster">

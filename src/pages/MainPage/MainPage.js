@@ -1,20 +1,27 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
+import EmailIcon from '@mui/icons-material/Email';
+import EventIcon from '@mui/icons-material/Event';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import "./MainPage.scss";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import NavSlide from "../../components/Nav/NavSlide";
+import Upload from "../../components/modals/Upload/Upload";
 
 const MainPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [upload, setUpload] = useState(false);
 
   function handleOpenSlideNav() {
     setOpen(!open);
   }
-
+  function CloseUpload() {
+    setUpload(!upload);
+  }
 
   return (
     <>
@@ -26,7 +33,7 @@ const MainPage = () => {
       >
         <Box className="anim"></Box>
         <Typography variant="h3" className="nav-title-text">
-          Artme{" "}
+          Artme
         </Typography>
       </Box>
       <Box className="profile_container">
@@ -40,29 +47,23 @@ const MainPage = () => {
           <Box className="nav-title">
             <Box className="anim"></Box>
             <Typography variant="h3" className="nav-title-text">
-              Artme{" "}
+              Artme
             </Typography>
           </Box>
           <Typography className="left_nav_title">MENU</Typography>
           <NavLink to="/Art_me/homepage/home">
-            {" "}
             <Typography className="left_nav_link">
-              {" "}
               <HomeIcon /> Home
-            </Typography>{" "}
+            </Typography>
           </NavLink>
-          <Typography className="left_nav_link">Discussion</Typography>
-          <Typography className="left_nav_link">Friends</Typography>
-          <Typography className="left_nav_link">Event</Typography>
-          <Typography className="left_nav_link">Videos</Typography>
+          <Typography className="left_nav_link"> <EmailIcon/> Messages</Typography>
+          <Typography className="left_nav_link"><NotificationsIcon/>Notifications</Typography>
+          <Typography className="left_nav_link"><EventIcon/>Event</Typography>
           <NavLink to="/Art_me/homepage/profile">
-            {" "}
             <Typography className="left_nav_link">
-              {" "}
-              <PersonOutlineOutlinedIcon /> Profile
-            </Typography>{" "}
+              <PersonIcon /> Profile
+            </Typography>
           </NavLink>
-          <Typography className="left_nav_link">Files</Typography>
           <Typography className="left_nav_title">YOUR FAVORITES</Typography>
           <Typography className="left_nav_link">Lorem 1</Typography>
           <Typography className="left_nav_link">Lorem 2</Typography>
@@ -135,11 +136,20 @@ const MainPage = () => {
           display: { xs: "flex", lg: "none" },
         }}
       >
-        <HomeIcon sx={{fontSize:"25px"}} onClick={()=>navigate("/Art_me/homepage/home")}  />
-        <PersonOutlineOutlinedIcon  sx={{fontSize:"25px"}} onClick={()=>navigate("/Art_me/homepage/profile")}  />
-        <MenuIcon  sx={{fontSize:"25px"}}  onClick={handleOpenSlideNav} />
+        <HomeIcon
+          sx={{ fontSize: "25px" }}
+          onClick={() => navigate("/Art_me/homepage/home")}
+        />
+
+        <PersonIcon
+          sx={{ fontSize: "25px" }}
+          onClick={() => navigate("/Art_me/homepage/profile")}
+        />
+        <MenuIcon sx={{ fontSize: "25px" }} onClick={handleOpenSlideNav} />
       </Box>
+
       <NavSlide openSideNavValue={open} closeSideNav={handleOpenSlideNav} />
+      <Upload CloseUpload={CloseUpload} Upload={upload} />
     </>
   );
 };

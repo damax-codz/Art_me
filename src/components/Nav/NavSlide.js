@@ -19,6 +19,7 @@ import { loggedOut } from "../../redux/Logged";
 import { useDispatch } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
 });
@@ -32,6 +33,7 @@ const NavSlide = (props) => {
   const dispatch = useDispatch();
   const [profile, setProfile] = useState("");
 
+
   // if (userdetails !== [] && userdetails[0].profileImg) {
   //   setProfile(userdetails[0].profileImg); //problem
   // }
@@ -43,6 +45,7 @@ const NavSlide = (props) => {
     setAnchorEl(null);
   };
 
+
   useEffect(() => {
     userdetails.length === 0
       ? setProfile("")
@@ -50,6 +53,7 @@ const NavSlide = (props) => {
   }, []);
 
   return (
+    <>
     <div>
       {logvalue ? (
         <>
@@ -141,7 +145,7 @@ const NavSlide = (props) => {
                     </Menu>
                   </Box>
 
-                  <Button variant="contained" className="log-nav-main-btn">
+                  <Button variant="contained" className="log-nav-main-btn" onClick={ ()=>{ props.closeSideNav(); props.CloseUpload();} }>
                     upload
                   </Button>
                 </Box>
@@ -357,9 +361,11 @@ const NavSlide = (props) => {
               </Box>
             </Box>
           </Dialog>
+         
         </>
       )}
     </div>
+    </>
   );
 };
 
