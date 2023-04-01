@@ -40,10 +40,10 @@
             width: 60%;
             margin-top: 5px;
             .poster_name{
-              @include font("Quicksand", sans-serif, 600, 15px, rgb(0, 0, 0));
+              @include font("Quicksand", sans-serif, 600, 17px, rgb(0, 0, 0));
             }
             .post_details{
-              @include font("Noto Sans JP", nans-serif, 500, 13px, rgb(0, 0, 0));
+              @include font("Noto Sans JP", nans-serif, 500, 15px, rgb(0, 0, 0));
             }
           }
         }
@@ -53,6 +53,7 @@
           margin-left: 60px;      
           margin-top: 10px;   
           overflow: hidden;
+          min-height: 400px;
           .post_image_single_wrapper{
             // position: relative;
             border: 1px solid white;
@@ -75,6 +76,12 @@
             margin-right: 100px;
             cursor: pointer;
           }
+          .action{
+            ul{
+              list-style-type: none;
+              display: flex;
+            }
+          }
 
         }
       }
@@ -83,6 +90,7 @@
 
   @media (max-width:800px) {
     .main_home_page .post_wrapper .post_container .post_image{
-      width: 90%;
+      width: 80%;
+      min-height: 280px;
     }
   }

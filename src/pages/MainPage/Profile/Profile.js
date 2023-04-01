@@ -4,6 +4,7 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import MetaTags from "react-meta-tags";
 import like from "./../../../components/images/like.png";
+import moon from "./../../../components/images/icons/new-moon.png";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Link, Outlet } from "react-router-dom";
@@ -84,7 +85,9 @@ const Profile = () => {
                 sx={{ background: `url(${profile})` }}
               />
             ) : (
-              <Box className="main_profile"></Box>
+              <Box className="main_profile">
+                <img src={moon} alt="profile" />
+              </Box>
             )}
 
             <Box className="upload_button">
@@ -100,7 +103,7 @@ const Profile = () => {
           </Box>
 
           <Box className="profile_lil_details">
-            <p>{name}</p>
+            <p className="text-[200px] ">{name}</p>
             <p>{bio}</p>
           </Box>
 
@@ -116,7 +119,7 @@ const Profile = () => {
               }}
               aria-label="secondary tabs example"
             >
-              <Tab value="one" label="Shots"></Tab>
+              <Tab value="one" label="Posts"></Tab>
               <Tab value="two" label="Collections" />
               <Tab value="three" label="Liked Shots" />
               <Tab value="four" label="About" />
@@ -127,7 +130,7 @@ const Profile = () => {
         {value === "one" ? (
           <Box className="uploads">
             <Box className="uploader">
-              <p className="upload_text_one">Upload your first art</p>
+              <p className="upload_text_one">Upload your first post</p>
               <p className="upload_text_two">
                 Show off your best work. Get feedback, likes and be a part of a
                 growing community.

@@ -1,20 +1,25 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Button, Fab, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
-import EmailIcon from '@mui/icons-material/Email';
-import EventIcon from '@mui/icons-material/Event';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import EmailIcon from "@mui/icons-material/Email";
+import LogoutIcon from "@mui/icons-material/Logout";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import "./MainPage.scss";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import NavSlide from "../../components/Nav/NavSlide";
 import Upload from "../../components/modals/Upload/Upload";
+import { loggedOut } from "../../redux/Logged";
+import { useDispatch } from "react-redux";
+import AddIcon from "@mui/icons-material/Add";
 
 const MainPage = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [upload, setUpload] = useState(false);
+  const dispatch = useDispatch();
 
   function handleOpenSlideNav() {
     setOpen(!open);
@@ -50,20 +55,38 @@ const MainPage = () => {
               Artme
             </Typography>
           </Box>
-          <Typography className="left_nav_title">MENU</Typography>
+          {/* <Typography className="left_nav_title">MENU</Typography> */}
           <NavLink to="/Art_me/homepage/home">
             <Typography className="left_nav_link">
               <HomeIcon /> Home
             </Typography>
           </NavLink>
-          <Typography className="left_nav_link"> <EmailIcon/> Messages</Typography>
-          <Typography className="left_nav_link"><NotificationsIcon/>Notifications</Typography>
-          <Typography className="left_nav_link"><EventIcon/>Event</Typography>
+          <Typography className="left_nav_link">
+            {" "}
+            <EmailIcon /> Messages
+          </Typography>
+          <Typography className="left_nav_link">
+            <NotificationsIcon />
+            Notifications
+          </Typography>
+          <Typography className="left_nav_link">
+            <ColorLensIcon />
+            Arts
+          </Typography>
           <NavLink to="/Art_me/homepage/profile">
             <Typography className="left_nav_link">
               <PersonIcon /> Profile
             </Typography>
           </NavLink>
+
+          <Link to="/Art_me" onClick={dispatch(loggedOut())}>
+            <Typography className="left_nav_link">
+              <LogoutIcon /> Logout
+            </Typography>
+          </Link>
+          <Button variant="contained" className="upload" onClick={CloseUpload}>
+            upload
+          </Button>
           <Typography className="left_nav_title">YOUR FAVORITES</Typography>
           <Typography className="left_nav_link">Lorem 1</Typography>
           <Typography className="left_nav_link">Lorem 2</Typography>
@@ -130,8 +153,20 @@ const MainPage = () => {
         </Box>
       </Box>
       {/* <Footer /> */}
+      <Fab
+        color="primary"
+        aria-label="add"
+        sx={{
+          display: { xs: "flex", lg: "none" },
+        }}
+        className=" z-10 !sticky bottom-[60px] left-[78%]  !bg-theme"
+        onClick={CloseUpload}
+      >
+        <AddIcon />
+      </Fab>
+
       <Box
-        className="nav_bottom"
+        className="nav_bottom z-20 "
         sx={{
           display: { xs: "flex", lg: "none" },
         }}

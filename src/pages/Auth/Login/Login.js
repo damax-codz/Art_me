@@ -39,14 +39,18 @@ const Login = () => {
         dispatch(loggedIn());
         dispatch(setToken(response.data.data));
         axios
-          .get("https://artme-backend-production.up.railway.app/api/users/logged-in", {
-            headers: {
-              Authorization: response.data.data,
-            },
-          })
+.get(
+            "https://artme-backend-production.up.railway.app/api/users/logged-in",
+            {
+              headers: {
+                Authorization: response.data.data,
+              },
+            }
+          )
           .then(function (response) {
             dispatch(setDetails(response.data.data));
-            console.log(response.data.data)
+
+            // console.log(response.data.data)
           })
           .catch(function (error) {});
 

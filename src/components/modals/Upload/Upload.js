@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Dialog,
+  Grid,
   IconButton,
   Toolbar,
   Typography,
@@ -9,16 +10,19 @@ import {
 import React, { useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Upload.scss";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import { Formik } from "formik";
 import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setPost } from "../../../redux/posts";
 
 const Upload = (props) => {
   const [postImage, setpostImage] = useState([]);
   const { token } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // console.log(postImage);
@@ -41,7 +45,7 @@ const Upload = (props) => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://artme-backend-production.up.railway.app/api/create",
+        url: "https://artme-backend-production.up.railway.app/api/post",
         data: body,
         headers: {
           "Content-Type": "application/json",
@@ -49,11 +53,29 @@ const Upload = (props) => {
         },
       });
       // console.log(response);
-      toast.success("Post created");
+      if (response.status === 200) {
+        toast.success("Post created");
+        (async () => {
+          try {
+            const response = await axios({
+              method: "get",
+              url: "https://artme-backend-production.up.railway.app/api/post/all",
+              headers: {
+                Authorization: token,
+              },
+            });
+
+            dispatch(setPost(response.data.data.post.reverse()));
+            // console.log(response);
+          } catch (error) {
+            console.log(error);
+          }
+        })();
+      }
     } catch (error) {
       toast.error("Error creating post");
     }
-    console.log(body)
+    // console.log(body)
   }
   return (
     <>
@@ -71,12 +93,10 @@ const Upload = (props) => {
 
           <Formik
             initialValues={{
-              name: "",
               details: "",
             }}
             onSubmit={async (values) => {
               const body = {
-                name: values.name,
                 description: values.details,
                 image: postImage,
               };
@@ -96,19 +116,6 @@ const Upload = (props) => {
                 <Box className="form_input_wrapper">
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                    onBlur={handleBlur}
-                    value={values.name}
-                    className="post_details_input"
-                  ></input>
-                </Box>
-                <Box className="form_input_wrapper">
-                  <input
-                    type="text"
                     id="details"
                     name="details"
                     placeholder="Write something about this post"
@@ -120,20 +127,57 @@ const Upload = (props) => {
                   ></input>
                 </Box>
 
-                <Box
-                  className="post_image_container"
-                  onClick={() => postWidget.open()}
+                {postImage.length !== 0 ? (
+                  <Grid
+                  container
+                  direction="row"
+                  className="min-h-[200px] w-[80%] px-[24px]"
                 >
-                  <IconButton>
-                    <AddPhotoAlternateOutlinedIcon />
-                  </IconButton>
-                  <p>Click to Add Photos</p>
-                </Box>
+                  {postImage.map((items, index) => {
+                    return (
+                      <>
+                        <Grid
+                          item
+                          xs={
+                            postImage.length === 1
+                              ? 12
+                              : postImage.length > 1
+                              ? 6
+                              : null
+                          }
+                          className="post_image_single_wrapper"
+                          key={index}
+                        >
+                          <Box
+                            sx={{
+                              background: `url(${items})`,
+                              height: "100%",
+                              width: "100%",
+                            }}
+                            className="post_image_single"
+                          ></Box>
+                        </Grid>
+                      </>
+                    );
+                  })}
+                </Grid>
+                ) : (
+                  <Box
+                    className="post_image_container"
+                    onClick={() => postWidget.open()}
+                  >
+                    <IconButton>
+                      <AddPhotoAlternateOutlinedIcon />
+                    </IconButton>
+                    <p>Click to Add Photos</p>
+                  </Box>
+                )}
+
                 <Box className="nav-buttons">
                   <Button
                     variant="outlined"
-                    className="nav-main-btn"
-                    onClick={props.CloseUpload}
+                    className="nav-main-btn w-full px-[24px]"
+                    onClick={ ()=>{ props.CloseUpload(); setpostImage([]) }}
                   >
                     CANCEL
                   </Button>

@@ -16,6 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 import { loggedOut } from "../../redux/Logged";
+import { resetDetails } from "../../redux/UserDetail";
 import { useDispatch } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
@@ -136,6 +137,7 @@ const NavSlide = (props) => {
                         onClick={() => {
                           handleClose();
                           dispatch(loggedOut());
+                          dispatch(resetDetails());
                           navigate("/Art_me/home");
                         }}
                         className="menu_item"
