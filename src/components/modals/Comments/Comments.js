@@ -191,7 +191,6 @@ const Comments = (props) => {
                 comment: values.comment,
               };
               // alert(JSON.stringify(body));
-              values.comment = ""
             }}
           >
             {({

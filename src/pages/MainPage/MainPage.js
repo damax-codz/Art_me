@@ -56,7 +56,7 @@ const MainPage = () => {
             </Typography>
           </Box>
           {/* <Typography className="left_nav_title">MENU</Typography> */}
-          <NavLink to="/Art_me/homepage/home">
+          <NavLink to="/Art_me/homepage/home" onClick={window.scrollTo(0, 0)}>
             <Typography className="left_nav_link">
               <HomeIcon /> Home
             </Typography>

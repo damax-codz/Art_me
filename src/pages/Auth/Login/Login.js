@@ -32,7 +32,7 @@ const Login = () => {
         data: body,
         headers: { "Content-Type": "application/json" },
       });
-      console.log(response);
+      // console.log(response);
       // console.log("heyy")
       if (response.status === 200) {
         toast.success("Login Successful");

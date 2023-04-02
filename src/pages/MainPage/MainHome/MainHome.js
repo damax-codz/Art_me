@@ -91,6 +91,7 @@ const MainHome = () => {
           width: { xs: "100%", lg: "60%" },
         }}
       >
+        <a href="top"></a>
         <Box className="post_wrapper">
           {posts.map((items, index) => {
             return (
@@ -116,8 +117,8 @@ const MainHome = () => {
                 <Grid
                   container
                   direction="row"
-                  className="post_image"
-                  // sx={{ height: { xs: "200px", md: "400px" } }}
+                  className={ items.image.length === 0 ? "post_image !min-h-0 " : "post_image min-h-[400px]"  }
+                  
                 >
                   {items.image.map((item, index) => {
                     return (
@@ -131,7 +132,7 @@ const MainHome = () => {
                               ? 6
                               : null
                           }
-                          className="post_image_single_wrapper"
+                          className="post_image_single_wrapper cursor-pointer"
                           key={index}
                         >
                           <Box

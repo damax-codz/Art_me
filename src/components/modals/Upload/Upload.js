@@ -114,7 +114,7 @@ const Upload = (props) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <Box className="form_input_wrapper">
-                  <input
+                  <textarea
                     type="text"
                     id="details"
                     name="details"
@@ -124,7 +124,9 @@ const Upload = (props) => {
                     onBlur={handleBlur}
                     value={values.details}
                     className="post_details_input"
-                  ></input>
+                    autoCorrect="on"
+                    maxLength={500}
+                  ></textarea>
                 </Box>
 
                 {postImage.length !== 0 ? (

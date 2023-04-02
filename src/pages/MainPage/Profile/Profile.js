@@ -17,6 +17,7 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import UpdateProfile from "../../../components/modals/UpdateProfile/UpdateProfile";
 import { useSelector } from "react-redux";
 import Upload from "../../../components/modals/Upload/Upload";
+import axios from "axios";
 
 const Profile = () => {
   const [value, setValue] = useState("one");
@@ -29,6 +30,8 @@ const Profile = () => {
   const [cover, setCover] = useState("");
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
+  const [Id, setId] = useState("");
+  const { token } = useSelector((state) => state.user);
 
   useEffect(() => {
     userdetails.length === 0
@@ -40,6 +43,7 @@ const Profile = () => {
       ? setNumber("")
       : setNumber(userdetails[0].phone_number);
     userdetails.length === 0 ? setName("") : setName(userdetails[0].full_name);
+    userdetails.length === 0 ? setId("") : setId(userdetails[0]._id);
   }, []);
 
   const handleChangeValue = (event, newValue) => {
@@ -53,9 +57,23 @@ const Profile = () => {
     setUpload(!upload);
   }
 
-  useEffect(() => {
-    // console.log(userdetails);
-  }, []);
+  (async function getUserPost() {
+    try{
+    const response = await axios({
+      method:"get",
+      url: `https://artme-backend-production.up.railway.app/api/post/user-post/${Id}`,
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json"
+      },
+    });
+    console.log(response);
+  }
+  catch(error){
+    // console.log(error);
+  }
+  })();
+
   return (
     <>
       <MetaTags>
