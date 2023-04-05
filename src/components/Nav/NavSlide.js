@@ -127,7 +127,7 @@ const NavSlide = (props) => {
                     >
                       <MenuItem
                         onClick={() => {
-                          navigate("/Art_me/profile");
+                          navigate("/Art_me/homepage/profile");
                           handleClose();
                         }}
                         className="menu_item"

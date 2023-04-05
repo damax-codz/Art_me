@@ -272,7 +272,7 @@ const Profile = () => {
                            className=" m-0 " 
                          />
                        </IconButton>
-                       <p className= "m-0 text-black">100</p>
+                       <p className="m-0 text-black">{ items.likes >= 0 ? items.likes : "0" }</p>
                        </Box>
                        <Menu
                          id="action"
