@@ -85,12 +85,7 @@ const Nav = () => {
   function handleLoggedModalClose() {
     setLoggedModalStatus(!LoggedModalStatus);
   }
-  function handleLoggedModalOpen() {
-    // would first useSelector to check if the person is logged in if not prompt the login modal if the
-    // person is logged in, would navigate to gallery
-    // navigate("/Art_me/gallery") if person is logged in
-    setLoggedModalStatus(!LoggedModalStatus);
-  }
+ 
   return (
     <>
       {logvalue ? (

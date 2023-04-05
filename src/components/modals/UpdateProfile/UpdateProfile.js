@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import { Box, Button, Toolbar, Tooltip, Typography } from "@mui/material";
 import "./UpdateProfile.scss";

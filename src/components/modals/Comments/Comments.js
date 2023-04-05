@@ -5,14 +5,13 @@ import { ToastContainer } from "react-toastify";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { Formik } from "formik";
-import * as Yup from "yup";
 import "./Comments.scss";
 
 const Comments = (props) => {
   const like = useRef();
 
   function LikeAction() {
-    if (like.current.style.fill == "red") {
+    if (like.current.style.fill === "red") {
       like.current.style.fill = "black";
     } else {
       like.current.style.fill = "red";
@@ -187,9 +186,9 @@ const Comments = (props) => {
               comment: "",
             }}
             onSubmit={async (values) => {
-              const body = {
-                comment: values.comment,
-              };
+              // const body = {
+              //   comment: values.comment,
+              // };
               // alert(JSON.stringify(body));
             }}
           >

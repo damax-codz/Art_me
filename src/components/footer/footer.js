@@ -1,4 +1,3 @@
-import { Link, Outlet } from "react-router-dom";
 import "./footer.scss";
 import { Box, Button, TextField } from "@mui/material";
 import star from "./../../components/images/star.png";

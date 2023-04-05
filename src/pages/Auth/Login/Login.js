@@ -1,5 +1,5 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.scss";
 import { Formik } from "formik";

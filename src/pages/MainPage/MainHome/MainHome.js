@@ -1,11 +1,10 @@
-import { Box, Grid, IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
-import React, { useRef, useState } from "react";
+import { Box, Grid, IconButton, Menu, Tooltip } from "@mui/material";
+import React, {  useState } from "react";
 import "./MainHome.scss";
 import MapsUgcRoundedIcon from "@mui/icons-material/MapsUgcRounded";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import Comments from "../../../components/modals/Comments/Comments";
-import { useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import likeIcon from "./../../../components/images/icons/like.png";
@@ -18,7 +17,6 @@ import { setPost } from "../../../redux/posts";
 const MainHome = () => {
   const [comment, setComment] = useState(false);
   // const [posts, setPosts] = useState([]);
-  const { logvalue } = useSelector((state) => state.logged);
   const { token } = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const likeOpen = Boolean(anchorEl);
@@ -43,7 +41,7 @@ const MainHome = () => {
       reaction: type,
     };
     try {
-      const response = await axios({
+      await axios({
         method: "post",
         url: `https://artme-backend-production.up.railway.app/api/post/like-post?postId=${postID}`,
         headers: {

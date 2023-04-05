@@ -1,13 +1,12 @@
 import React from "react";
 import "./Profile.scss";
-import { Avatar, Box, Button, Grid, IconButton, Menu, Tooltip, Typography } from "@mui/material";
+import { Avatar, Box, Button, Grid, IconButton, Menu, Tooltip } from "@mui/material";
 import { useEffect, useState } from "react";
 import MetaTags from "react-meta-tags";
 import like from "./../../../components/images/like.png";
 import moon from "./../../../components/images/icons/new-moon.png";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Link, Outlet } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import PersonIcon from "@mui/icons-material/Person";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
@@ -106,7 +105,7 @@ const Profile = () => {
       reaction: type
     }
     try {
-      const response = await axios({
+       await axios({
         method: "post",
         url: `https://artme-backend-production.up.railway.app/api/post/like-post?postId=${postID}`,
         headers: {

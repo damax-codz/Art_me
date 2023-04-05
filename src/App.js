@@ -6,13 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./pages/Auth/Signup/Signup";
 import Login from "./pages/Auth/Login/Login";
 import { useSelector } from "react-redux";
-import Protected from "./components/Protected/Protected";
 import MainPage from "./pages/MainPage/MainPage";
 import Profile from "./pages/MainPage/Profile/Profile";
 import MainHome from "./pages/MainPage/MainHome/MainHome";
 
 function App() {
-  const { logvalue } = useSelector((state) => state.logged);
   return (
     <div className="App">
       <BrowserRouter>

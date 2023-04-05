@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Fab, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
