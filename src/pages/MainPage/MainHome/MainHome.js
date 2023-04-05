@@ -40,20 +40,19 @@ const MainHome = () => {
   async function handleReaction(type) {
     setAnchorEl(null);
     const body = {
-      reaction: type
-    }
+      reaction: type,
+    };
     try {
       const response = await axios({
         method: "post",
         url: `https://artme-backend-production.up.railway.app/api/post/like-post?postId=${postID}`,
         headers: {
           Authorization: token,
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         data: JSON.stringify(body),
       });
       // console.log(response);
-
     } catch (error) {
       // console.log(error);
     }
@@ -76,11 +75,8 @@ const MainHome = () => {
     }
   })();
 
-
-
   // useEffect(() => {
-  //   // console.log(posts);
-  //   Call()
+  //   console.log(token);
   // }, []);
 
   return (
@@ -91,7 +87,6 @@ const MainHome = () => {
           width: { xs: "100%", lg: "60%" },
         }}
       >
-        <a href="top"></a>
         <Box className="post_wrapper">
           {posts.map((items, index) => {
             return (
@@ -110,15 +105,21 @@ const MainHome = () => {
                     <Box className="poster_image"></Box>
                   )}
                   <Box className="poster_details">
-                    <p className="poster_name mb-1"> {items.createdBy.full_name}</p>
+                    <p className="poster_name mb-1">
+                      {" "}
+                      {items.createdBy.full_name}
+                    </p>
                     <p className="post_details">{items.description}</p>
                   </Box>
                 </Box>
                 <Grid
                   container
                   direction="row"
-                  className={ items.image.length === 0 ? "post_image !min-h-0 " : "post_image min-h-[400px]"  }
-                  
+                  className={
+                    items.image.length === 0
+                      ? "post_image !min-h-0 "
+                      : "post_image !min-h-[400px]"
+                  }
                 >
                   {items.image.map((item, index) => {
                     return (
@@ -149,7 +150,6 @@ const MainHome = () => {
                   })}
                 </Grid>
                 <Box className="post_actions justify-between">
-                  
                   <IconButton>
                     <MapsUgcRoundedIcon
                       onClick={CloseComment}
@@ -157,13 +157,13 @@ const MainHome = () => {
                     />
                   </IconButton>
                   <Box className="flex items-center">
-                  <IconButton>
-                    <FavoriteBorderOutlinedIcon
-                      onClick={handleLikeClick}
-                      className=" m-0 " 
-                    />
-                  </IconButton>
-                  <p className= "m-0 text-black">100</p>
+                    <IconButton>
+                      <FavoriteBorderOutlinedIcon
+                        onClick={handleLikeClick}
+                        className=" m-0 "
+                      />
+                    </IconButton>
+                    <p className="m-0 text-black">{ items.likes >= 0 ? items.likes : "0" }</p>
                   </Box>
                   <Menu
                     id="action"
@@ -172,6 +172,11 @@ const MainHome = () => {
                     onClose={handleLikeClose}
                     MenuListProps={{
                       "aria-labelledby": "basic-button",
+                    }}
+                    sx={{
+                      "& .MuiPaper-root": {
+                        boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                      },
                     }}
                   >
                     <ul className="flex list-none pl-0">

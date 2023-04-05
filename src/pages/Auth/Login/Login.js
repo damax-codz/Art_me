@@ -9,8 +9,8 @@ import Art_lover from "./../../../components/images/Making_art.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
-import { loggedIn } from "../../../redux/Logged";
-import { useDispatch } from "react-redux/es/exports";
+import { logged } from "../../../redux/Logged";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MetaTags from "react-meta-tags";
@@ -18,6 +18,7 @@ import { setDetails, setToken } from "../../../redux/UserDetail";
 
 const Login = () => {
   const [passwordState, SetPasswordState] = useState(true);
+  const { logvalue } = useSelector( (state) => state.logged)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const passwordVisibility = () => {
@@ -36,7 +37,7 @@ const Login = () => {
       // console.log("heyy")
       if (response.status === 200) {
         toast.success("Login Successful");
-        dispatch(loggedIn());
+        dispatch(logged(true));
         dispatch(setToken(response.data.data));
         axios
 .get(
@@ -50,7 +51,7 @@ const Login = () => {
           .then(function (response) {
             dispatch(setDetails(response.data.data));
 
-            // console.log(response.data.data)
+            console.log(logvalue)
           })
           .catch(function (error) {});
 

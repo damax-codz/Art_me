@@ -9,15 +9,13 @@ const initialState = {
       name:"logged",
       initialState,
       reducers:{
-          loggedIn : (state) => {
-              state.logvalue = true
+          logged : (state,action) => {
+              state.logvalue = action.payload
           },
-          loggedOut : (state) => {
-            state.logvalue = false
-          }
+    
       }
   })
 
-  export const { loggedIn,loggedOut } = LoggedSlice.actions
+  export const { logged } = LoggedSlice.actions
 
   export default LoggedSlice.reducer

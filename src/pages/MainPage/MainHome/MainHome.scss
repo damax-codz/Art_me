@@ -90,7 +90,26 @@
 
   @media (max-width:800px) {
     .main_home_page .post_wrapper .post_container .post_image{
-      width: 80%;
+      width: 85%;
       min-height: 280px;
+    }
+    .main_home_page .post_wrapper .post_container{
+      padding: 20px 5px;
+    }
+    .main_home_page .post_wrapper .post_container .poster .poster_image_true {
+      width: 35px;
+      height: 35px;
+    }
+    .main_home_page .post_wrapper .post_container .poster .poster_details {
+      margin-top: 0;
+      width: 85%;
+    }
+    .main_home_page .post_wrapper .post_container .poster .poster_details .poster_name{
+      @include font("Quicksand", sans-serif, 600, 15px, rgb(0, 0, 0));
+      margin-bottom: 0;
+    }
+    .main_home_page .post_wrapper .post_container .poster .poster_details .post_details{
+      @include font("Noto Sans JP", nans-serif, 500, 14px, rgb(0, 0, 0));
+      // width: 85%;
     }
   }

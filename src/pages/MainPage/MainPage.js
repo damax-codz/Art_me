@@ -11,9 +11,11 @@ import "./MainPage.scss";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import NavSlide from "../../components/Nav/NavSlide";
 import Upload from "../../components/modals/Upload/Upload";
-import { loggedOut } from "../../redux/Logged";
+import { logged } from "../../redux/Logged";
 import { useDispatch } from "react-redux";
 import AddIcon from "@mui/icons-material/Add";
+import { resetDetails } from "../../redux/UserDetail";
+import { resetPost } from "../../redux/posts";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -79,7 +81,7 @@ const MainPage = () => {
             </Typography>
           </NavLink>
 
-          <Link to="/Art_me" onClick={dispatch(loggedOut())}>
+          <Link to="/Art_me" onClick={ ()=> { dispatch(logged(false)); dispatch(resetDetails()); dispatch(resetPost()) } }>
             <Typography className="left_nav_link">
               <LogoutIcon /> Logout
             </Typography>

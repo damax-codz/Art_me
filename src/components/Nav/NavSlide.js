@@ -15,10 +15,11 @@ import "./NavSlide.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
-import { loggedOut } from "../../redux/Logged";
+import { logged } from "../../redux/Logged";
 import { resetDetails } from "../../redux/UserDetail";
 import { useDispatch } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import { resetPost } from "../../redux/posts";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -136,8 +137,9 @@ const NavSlide = (props) => {
                       <MenuItem
                         onClick={() => {
                           handleClose();
-                          dispatch(loggedOut());
+                          dispatch(logged(false));
                           dispatch(resetDetails());
+                          dispatch(resetPost());
                           navigate("/Art_me/home");
                         }}
                         className="menu_item"

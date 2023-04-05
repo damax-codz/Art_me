@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import NavSlide from "./NavSlide";
 import NotLogged from "../modals/NotLogged/NotLogged";
 import SearchIcon from "@mui/icons-material/Search";
-import { loggedOut } from "../../redux/Logged";
+import { logged } from "../../redux/Logged";
 import { resetDetails } from "../../redux/UserDetail";
 import { useDispatch, useSelector } from "react-redux";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -236,7 +236,7 @@ const Nav = () => {
                   <MenuItem
                     onClick={() => {
                       handleClose();
-                      dispatch(loggedOut());
+                      dispatch(logged(false));
                       dispatch(resetDetails());
                       navigate("/Art_me/home");
                     }}

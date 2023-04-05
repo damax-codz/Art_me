@@ -10,7 +10,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import MetaTags from "react-meta-tags";
 import axios from "axios";
-import { loggedIn } from "../../../redux/Logged";
+import { logged } from "../../../redux/Logged";
 import { useDispatch } from "react-redux/es/exports";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -37,7 +37,7 @@ const Signup = () => {
 
       if (response.status === 200) {
         toast.success("Signup Successful");
-        dispatch(loggedIn());
+        dispatch(logged(true));
         navigate("/Art_me/homepage/home");
       }
     } catch (error) {

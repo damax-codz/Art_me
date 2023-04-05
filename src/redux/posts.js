@@ -12,10 +12,16 @@ export const PostSlice = createSlice({
     setPost: (state, action) => {
       state.posts = action.payload;
     },
+ 
+   
+    resetPost: (state) => {
+      state.posts = [];
+    },
+ 
    
   },
 });
 
-export const { setPost} = PostSlice.actions;
+export const { setPost, resetPost} = PostSlice.actions;
 
 export default PostSlice.reducer;
